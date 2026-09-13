@@ -1,12 +1,267 @@
+@font-face {
+  font-family: "ATP Tobeloved";
+  src: url("../assets/fonts/ATP Tobeloved.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --design-width: 1920px;
+  --design-height: 1080px;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
+  background: #111;
+  color: #fff;
+  font-family: "ATP Tobeloved", cursive;
+}
+
+.intro {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #111;
+}
+
+.intro-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--design-width);
+  height: var(--design-height);
+  overflow: hidden;
+  isolation: isolate;
+  background: #111;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+@media (max-width: 1919px), (max-height: 1079px) {
+  .intro-canvas {
+    transform: translate(-50%, -50%)
+      scale(min(1, calc(100vw / 1920px), calc(100vh / 1080px)));
+  }
+}
+
+.intro-canvas::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+}
+
+.intro__frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 1920px;
+  height: 1080px;
+  z-index: 1;
+}
+
+.intro__cat {
+  position: absolute;
+  top: 578.42px;
+  left: 1337.59px;
+  z-index: 3;
+  display: block;
+  width: 304.22px;
+  height: 339.5px;
+  object-fit: contain;
+}
+.intro__slogan-crop {
+  position: absolute;
+  top: 592.57px;
+  left: 1189.95px;
+  z-index: 4;
+  display: block;
+  width: 311.91px;
+  height: 66.19px;
+  overflow: hidden;
+}
+
+.intro__slogan-crop img {
+  position: absolute;
+  top: -592.57px;
+  left: -1189.95px;
+  display: block;
+  width: 1920px;
+  height: 1080px;
+  max-width: none;
+}
+
+.intro__hotspot {
+  position: absolute;
+  z-index: 2;
+  display: block;
+}
+
+.intro__hotspot--about {
+  top: 92.63px;
+  left: 87.59px;
+  width: 376.36px;
+  height: 62.64px;
+}
+
+.intro__hotspot--enter {
+  top: 729.33px;
+  left: 692.83px;
+  width: 514.82px;
+  height: 113.07px;
+}
+
+.intro__logo,
+.intro__character,
+.intro__about img,
+.intro__signal img,
+.intro__weneedcrew img,
+.intro__enter-button img {
+  display: block;
+  height: auto;
+}
+
+.intro__logo {
+  position: absolute;
+  z-index: 3;
+  top: 260.93px;
+  left: 345.11px;
+  width: 1277.75px;
+}
+
+.intro__about,
+.intro__signal,
+.intro__weneedcrew,
+.intro__enter-button {
+  position: absolute;
+  display: block;
+}
+
+.intro__about {
+  top: 92.63px;
+  left: 87.59px;
+  width: 376.36px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.intro__about img,
+.intro__signal img,
+.intro__weneedcrew img,
+.intro__enter-button img {
+  width: 100%;
+}
+
+.intro__about span,
+.intro__signal p,
+.intro__weneedcrew span,
+.intro__enter-button span {
+  position: absolute;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.intro__about span {
+  top: 3.78px;
+  left: 83.34px;
+  color: #fef4eb;
+  font-size: 41px;
+}
+
+.intro__signal {
+  top: 203.24px;
+  left: 744.32px;
+  z-index: 4;
+  width: 471.6px;
+}
+
+.intro__signal p {
+  top: 38px;
+  left: 105px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1.12;
+  text-align: center;
+}
+
+.intro__character {
+  position: absolute;
+  z-index: 2;
+  object-fit: contain;
+}
+
+.intro__character--pigeon {
+  top: 336.43px;
+  left: 189.9px;
+  width: 254.67px;
+  height: 462.74px;
+}
+
+.intro__character--rat {
+  top: 163.48px;
+  left: 1480.64px;
+  width: 265.09px;
+  height: 274.32px;
+}
+
+.intro__character--cat {
+  top: 578.42px;
+  left: 1337.59px;
+  width: 304.22px;
+  height: 339.5px;
+}
+
+.intro__weneedcrew {
+  top: 592.57px;
+  left: 1189.95px;
+  z-index: 4;
+  width: 311.91px;
+  height: 66.19px;
+}
+
+.intro__weneedcrew span {
+  top: 19px;
+  left: 57px;
+  color: #fff;
+  font-size: 32px;
+}
+
+.intro__enter {
+  position: absolute;
+  top: 729.33px;
+  left: 692.83px;
+  z-index: 6;
+  width: 514.82px;
+  height: 113.07px;
+}
+
+.intro__enter-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 150px;
+  color: #fff;
+  font-size: 24px;
+  text-align: left;
+}
+
+.intro__enter-button {
+  top: 11.86px;
+  left: 57.68px;
+  width: 457.14px;
+  color: #090909;
+  text-decoration: none;
+}
+
+.intro__enter-button span {
+  top: 8.3px;
+  left: 49.56px;
+  font-size: 44px;
 }

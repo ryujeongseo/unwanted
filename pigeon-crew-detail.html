@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAGGY — Pigeon Crew Detail</title>
+    <link rel="stylesheet" href="css/pigeon-crew-detail.css" />
+    <script src="js/pigeon-crew-detail.js" defer></script>
+  </head>
+  <body>
+    <main class="detail-canvas" aria-label="Pigeon Crew — TAGGY">
+      <img class="detail-layer detail-bg" src="assets/images/pigeon-crew-detail/pigeon-detail-bg.png" alt="" />
+      <a class="detail-layer detail-back" href="pigeon-dialogue-01.html" aria-label="TAGGY 대화로 돌아가기">
+        <img src="assets/images/pigeon-crew-detail/pigeon-detail-back-button.png" alt="BACK" />
+      </a>
+      <img class="detail-layer detail-crew-file detail-entrance" src="assets/images/pigeon-crew-detail/pigeon-detail-crew-file.png" alt="CREW FILE — PIGEON CREW, URBAN TRACE WRITER. 사람들이 외면한 곳에 흔적을 남깁니다. 버려진 장소를 메시지로 바꾸는 도시의 그래피티 라이터입니다." />
+      <img class="detail-layer detail-mission detail-entrance" src="assets/images/pigeon-crew-detail/pigeon-detail-mission.png" alt="MISSION — Record traces in public spaces. 공공장소의 훼손, 방치, 오염 흔적을 사진으로 기록하고 위치를 남기세요." />
+      <img class="detail-layer detail-reward detail-entrance" src="assets/images/pigeon-crew-detail/pigeon-detail-reward.png" alt="REWARD — PIGEON TAG, BADGE, SECURED" />
+      <section class="detail-layer detail-recovery detail-entrance" aria-label="RECOVERY STATUS — PUBLIC TRACE RECORD: 42 / 80. 28 CIVILIANS ACTIVE">
+        <img src="assets/images/pigeon-crew-detail/pigeon-detail-recovery-status.png" alt="" />
+        <span class="recovery-count" aria-hidden="true">42</span>
+        <div class="recovery-track" role="progressbar" aria-label="Public trace record" aria-valuemin="0" aria-valuemax="80" aria-valuenow="42">
+          <span class="recovery-fill"></span>
+        </div>
+      </section>
+      <img class="detail-layer detail-character detail-entrance" src="assets/images/pigeon-crew-detail/pigeon-detail-character.png" alt="TAGGY / 태기" />
+      <div class="detail-join detail-entrance">
+        <a class="detail-layer detail-join-button" href="pigeon-mission-guide.html">
+          <img src="assets/images/pigeon-crew-detail/pigeon-detail-join-button.png" alt="JOIN PIGEON CREW" />
+        </a>
+        <img class="detail-layer detail-join-label" src="assets/images/pigeon-crew-detail/pigeon-detail-join-label.png" alt="05 JOIN CREW" />
+      </div>
+    </main>
+  </body>
+</html>

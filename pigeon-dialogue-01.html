@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAGGY — Pigeon Dialogue</title>
+    <link rel="stylesheet" href="css/pigeon-dialogue-01.css" />
+  </head>
+  <body>
+    <!-- Map the supplied cream fill (#fff5eb) to yellow; black and alpha stay intact. -->
+    <svg width="0" height="0" aria-hidden="true" class="filter-definitions">
+      <defs>
+        <filter id="choice-yellow" color-interpolation-filters="sRGB">
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="1" />
+            <feFuncG type="linear" slope="0.9142857143" />
+            <feFuncB type="linear" slope="0.0127659574" />
+            <feFuncA type="identity" />
+          </feComponentTransfer>
+        </filter>
+      </defs>
+    </svg>
+    <main class="dialogue-canvas" aria-label="TAGGY와의 대화">
+      <img class="layer dialogue-bg" src="assets/images/pigeon-dialogue-01/pigeon-bg.png" alt="" />
+      <a class="layer dialogue-back" href="crew-select.html" aria-label="크루 선택으로 돌아가기">
+        <img src="assets/images/pigeon-dialogue-01/pigeon-back-button.png" alt="BACK" />
+      </a>
+      <img class="layer dialogue-character" src="assets/images/pigeon-dialogue-01/pigeon-scene-01-character.png" alt="비둘기 크루 TAGGY" />
+      <img class="layer dialogue-box" src="assets/images/pigeon-dialogue-01/pigeon-scene-01-dialogue.png" alt="TAGGY" />
+      <div class="dialogue-copy" aria-label="또 그 표정이네. 비둘기 보면 뭐부터 떠올라? 시끄럽다? 더럽다?">
+        <p>또 그 표정이네.</p>
+        <p>비둘기 보면 뭐부터 떠올라?</p>
+        <p>시끄럽다? 더럽다?</p>
+      </div>
+      <div class="layer choice-1 choice-entrance">
+      <button class="layer choice" type="button" aria-label="뭐… 솔직히 좀.">
+        <img src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-01.png" alt="" />
+        <img class="choice-hover" src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-01.png" alt="" />
+        <span class="choice-text-cover" aria-hidden="true"></span>
+        <span class="choice-text-cover choice-hover" aria-hidden="true"></span>
+        <span class="choice-copy" aria-hidden="true">뭐… 솔직히 좀.</span>
+      </button>
+      </div>
+      <div class="layer choice-2 choice-entrance">
+      <button class="layer choice" type="button" aria-label="난 별 생각 없는데?">
+        <img src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-02.png" alt="" />
+        <img class="choice-hover" src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-02.png" alt="" />
+        <span class="choice-text-cover" aria-hidden="true"></span>
+        <span class="choice-text-cover choice-hover" aria-hidden="true"></span>
+        <span class="choice-copy" aria-hidden="true">난 별 생각 없는데?</span>
+      </button>
+      </div>
+      <section class="scene-two" hidden aria-label="TAGGY Scene 2">
+        <img class="layer scene-two-character" src="assets/images/pigeon-dialogue-01/pigeon-scene-02-character.png" alt="비둘기 크루 TAGGY" />
+        <div class="layer scene-two-box">
+          <img src="assets/images/pigeon-dialogue-01/pigeon-scene-02-dialogue.png" alt="TAGGY" />
+          <div class="scene-two-copy"></div>
+          <button class="scene-two-next" type="button" hidden aria-label="다음 대사">▼</button>
+        </div>
+        <div class="scene-three-choice-entrance" hidden>
+          <a class="choice scene-three-detail-choice" href="pigeon-crew-detail.html">
+            <img src="assets/images/pigeon-dialogue-01/pigeon-scene-03-choice-01.png" alt="" />
+            <img class="choice-hover" src="assets/images/pigeon-dialogue-01/pigeon-scene-03-choice-01.png" alt="" />
+            <span>TAGGY CREW DETAIL</span>
+          </a>
+        </div>
+      </section>
+    </main>
+    <script>
+      const canvas = document.querySelector('.dialogue-canvas');
+      function fitDialogueCanvas() {
+        canvas.style.setProperty('--canvas-scale', Math.min(innerWidth / 1920, innerHeight / 1080));
+      }
+      fitDialogueCanvas();
+      window.addEventListener('resize', fitDialogueCanvas);
+    </script>
+    <script>
+      (() => {
+        const character = document.querySelector('.dialogue-character');
+        const copy = document.querySelector('.dialogue-copy');
+        const choices = [...document.querySelectorAll('.choice-entrance')];
+        const letters = [];
+        const originals = [];
+        copy.querySelectorAll('p').forEach((paragraph) => {
+          originals.push([paragraph, paragraph.textContent]);
+          paragraph.setAttribute('aria-hidden', 'true');
+          const spans = Array.from(paragraph.textContent, (letter) => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            span.style.opacity = '0';
+            letters.push(span);
+            return span;
+          });
+          paragraph.replaceChildren(...spans);
+        });
+        choices.forEach((choice) => { choice.inert = true; });
+        const choiceCopies = choices.map((choice) => {
+          const element = choice.querySelector('.choice-copy');
+          const text = element.textContent;
+          const spans = Array.from(text, (letter) => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            span.style.opacity = '0';
+            return span;
+          });
+          element.replaceChildren(...spans);
+          return { element, text, spans };
+        });
+        async function revealChoices() {
+          for (let i = 0; i < choices.length; i++) {
+            if (i > 0) await new Promise((resolve) => window.setTimeout(resolve, 100));
+            const choice = choices[i];
+            const appearance = choice.animate([
+              { opacity: 0, transform: 'translateY(8px)' },
+              { opacity: 1, transform: 'translateY(0)' },
+            ], { duration: 350, easing: 'ease-out', fill: 'both' });
+            await appearance.finished;
+            choice.inert = false;
+            const { element, text, spans } = choiceCopies[i];
+            for (let j = 0; j < spans.length; j++) {
+              if (j > 0) await new Promise((resolve) => window.setTimeout(resolve, 28));
+              spans[j].style.opacity = '1';
+            }
+            element.textContent = text;
+          }
+        }
+        let started = false;
+        function typeDialogue() {
+          if (started) return;
+          started = true;
+          let index = 0;
+          function reveal() {
+            if (index < letters.length) letters[index++].style.opacity = '1';
+            if (index < letters.length) {
+              window.setTimeout(reveal, 40);
+              return;
+            }
+            originals.forEach(([paragraph, text]) => { paragraph.textContent = text; });
+            revealChoices();
+          }
+          reveal();
+        }
+        const entrance = character.getAnimations().find(
+          (animation) => animation.animationName === 'dialogue-character-enter'
+        );
+        if (entrance) entrance.finished.then(typeDialogue);
+        else typeDialogue();
+      })();
+    </script>
+    <script src="js/pigeon-scene-two.js"></script>
+  </body>
+</html>

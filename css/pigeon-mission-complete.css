@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "KMU80TTFHaeongSans";
+  src: url("../assets/fonts/KMU80TTFHaeongSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #181818; }
+.complete-canvas { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden; transform: translate(-50%, -50%) scale(var(--canvas-scale, 1)); transform-origin: center; }
+.complete-layer { position: absolute; display: block; max-width: none; height: auto; }
+.complete-layer[hidden] { display: none; }
+.complete-layer > img, .city-button > img { display: block; width: 100%; height: auto; }
+/* Frame 19:19122 coordinates, never canvas/global Figma coordinates.
+   Foreground PNGs keep their intrinsic aspect ratios at half export resolution. */
+.complete-bg { left: 0; top: 0; width: 1920px; }
+.complete-back { left: 108.24px; top: 101.4992px; width: 479.5px; }
+.complete-title { left: 786px; top: 170.31px; width: 389px; }
+.card-one { left: 455.8301px; top: 305.02px; }
+.card-two { left: 808.5596px; top: 302.83px; }
+.card-three { left: 1159.5098px; top: 301.49px; }
+.reward-card > img { position: absolute; left: 0; top: 0; max-width: none; height: auto; }
+.card-one > .card-disabled { width: 310.03px; height: 442.24px; }
+.card-one > .card-active { width: 310.03px; height: 442.24px; }
+.card-two > .card-disabled { width: 310.04px; height: 446.31px; }
+.card-two > .card-active { width: 310.04px; height: 446.31px; }
+.card-three > .card-disabled { width: 311.84px; height: 443.17px; }
+.card-three > .card-active { width: 311.84px; height: 443.17px; }
+.card-active, .card-stamp { opacity: 0; }
+.reward-card > .card-stamp { width: 164.5px; transform-origin: center; }
+.card-one > .card-stamp { left: 142.2501px; top: 255.837px; }
+.card-two > .card-stamp { left: 140.1702px; top: 266.527px; }
+.card-three > .card-stamp { left: 145.2102px; top: 267.057px; }
+.taggy-dialogue { left: 589px; top: 814.0103px; width: 784px; }
+.taggy-copy { position: absolute; left: 225.4px; top: 56.89px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 24px; font-weight: 400; line-height: 28px; }
+.taggy-copy p { margin: 0; white-space: nowrap; }
+.taggy-copy p + p { margin-top: 7.88px; margin-left: 4.43px; }
+.city-entrance { left: 1397.63px; top: 105.3392px; width: 447.5px; }
+.city-button { display: block; }
+.complete-back, .city-button { cursor: pointer; transform: scale(1); transform-origin: center; transition: transform 0.18s ease; }
+.complete-back:hover, .city-button:hover { transform: scale(1.03); }

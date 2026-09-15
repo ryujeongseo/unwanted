@@ -64,6 +64,96 @@ body {
   width: 1920px;
   height: 1080px;
   z-index: 1;
+  transform: scale(1.03);
+  transform-origin: center center;
+}
+
+.intro__logo-motion {
+  position: absolute;
+  top: 260.93px;
+  left: 345.11px;
+  z-index: 2;
+  display: block;
+  width: 1277.75px;
+  height: 411.67px;
+}
+
+.intro__logo-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.intro__logo-image {
+  opacity: 0;
+  transform: scale(0.92);
+  transform-origin: center center;
+  animation: logo-pop 0.56s cubic-bezier(0.22, 0.8, 0.28, 1) 0.34s forwards;
+}
+
+@keyframes logo-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  72% {
+    opacity: 1;
+    transform: scale(1.025);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.intro__pigeon-motion {
+  position: absolute;
+  top: 336.43px;
+  left: 189.9px;
+  z-index: 2;
+  display: block;
+  width: 254.67px;
+  height: 462.74px;
+}
+
+.intro__pigeon-image,
+.intro__rat-image,
+.intro__cat-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transform: scale(0.94) rotate(-3deg);
+  transform-origin: center center;
+  animation: pigeon-sticker 0.38s cubic-bezier(0.22, 0.8, 0.28, 1) 0.75s
+    forwards;
+}
+
+.intro__rat-image {
+  animation-delay: 0.9s;
+}
+
+.intro__cat-image {
+  animation-delay: 1.05s;
+}
+
+@keyframes pigeon-sticker {
+  0% {
+    opacity: 1;
+    transform: scale(0.94) rotate(-3deg);
+  }
+  68% {
+    opacity: 1;
+    transform: scale(1.055) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 .intro__cat {
@@ -84,17 +174,38 @@ body {
   display: block;
   width: 311.91px;
   height: 66.19px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .intro__slogan-crop img {
   position: absolute;
-  top: -592.57px;
-  left: -1189.95px;
+  top: 0;
+  left: 0;
   display: block;
-  width: 1920px;
-  height: 1080px;
+  width: 390px;
+  height: 67px;
   max-width: none;
+}
+
+.intro__click-to-enter {
+  position: absolute;
+  top: 692.59px;
+  left: 855.34px;
+  z-index: 5;
+  display: block;
+  width: 187.34px;
+  height: 26.02px;
+  animation: click-to-enter-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes click-to-enter-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
 }
 
 .intro__hotspot {
@@ -108,6 +219,22 @@ body {
   left: 87.59px;
   width: 376.36px;
   height: 62.64px;
+  cursor: pointer;
+}
+
+.intro__about-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 376.36px;
+  height: 62.64px;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.18s ease;
+}
+
+.intro__hotspot--about:hover .intro__about-image {
+  transform: scale(1.03);
 }
 
 .intro__hotspot--enter {
@@ -115,6 +242,23 @@ body {
   left: 692.83px;
   width: 514.82px;
   height: 113.07px;
+  cursor: pointer;
+}
+
+.intro__enter-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 514.82px;
+  height: 113.07px;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.2s cubic-bezier(0.22, 0.8, 0.28, 1);
+}
+
+.intro__hotspot--enter:hover .intro__enter-image {
+  transform: scale(1.03);
 }
 
 .intro__logo,

@@ -1,0 +1,118 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.crew-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+  transform-origin: center;
+}
+
+.crew-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+/* Positions and display sizes within Figma's 1920 × 1080 crew select frame. */
+.crew-bg {
+  left: -0.43px;
+  top: -42.45px;
+  width: 1926.59px;
+  height: 1179.77px;
+}
+
+.crew-back {
+  left: 87.35px;
+  top: 89.4492px;
+  width: 188.8428px;
+  height: 67.0708px;
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 0.18s ease;
+}
+
+.crew-back:hover {
+  transform: scale(1.03);
+}
+
+.crew-back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.crew-title {
+  left: 567.6095px;
+  top: 82.7756px;
+  width: 749.7104px;
+  height: 219.9644px;
+  transform-origin: center center;
+  animation: crew-title-stamp 0.4s ease-out 0.25s 1 both;
+}
+
+@keyframes crew-title-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) rotate(-3deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(0.94) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.crew-pigeon {
+  left: 250.04px;
+  top: 293.31px;
+  width: 446.16px;
+  height: 651.60px;
+}
+
+.crew-rat {
+  left: 730.75px;
+  top: 288.08px;
+  width: 419.50px;
+  height: 652.50px;
+}
+
+.crew-cat {
+  left: 1195.14px;
+  top: 281.27px;
+  width: 434.32px;
+  height: 666.42px;
+}
+
+:is(.crew-pigeon, .crew-rat, .crew-cat) {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: center center;
+  z-index: 1;
+  transition: transform 0.22s ease-out, opacity 0.22s ease-out, filter 0.22s ease-out;
+}
+
+:is(.crew-pigeon, .crew-rat, .crew-cat):hover {
+  transform: translateY(-12px) scale(1.06);
+  z-index: 2;
+  filter: brightness(1.08) contrast(1.05) drop-shadow(3px 5px 1px rgb(0 0 0 / 35%));
+}
+
+.crew-canvas:has(> :is(.crew-pigeon, .crew-rat, .crew-cat):hover)
+  > :is(.crew-pigeon, .crew-rat, .crew-cat):not(:hover) {
+  opacity: 0.72;
+}

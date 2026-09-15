@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crew Select</title>
+    <link rel="stylesheet" href="css/crew-select.css" />
+  </head>
+  <body>
+    <main class="crew-canvas" aria-label="Choose your crew">
+      <img class="crew-layer crew-bg" src="assets/images/crew-select/crew-bg.png" alt="" />
+      <a class="crew-layer crew-back" href="index.html" aria-label="Back to intro">
+        <img src="assets/images/crew-select/back-button.png" alt="Back" />
+      </a>
+      <img class="crew-layer crew-title" src="assets/images/crew-select/select-title.png" alt="Choose your crew!" />
+      <img class="crew-layer crew-pigeon" src="assets/images/crew-select/card-pigeon.png" alt="Pigeon — Record traces in public spaces." />
+      <img class="crew-layer crew-rat" src="assets/images/crew-select/card-rat.png" alt="Rat — Clean up polluted alley zones." />
+      <img class="crew-layer crew-cat" src="assets/images/crew-select/card-cat.png" alt="Cat — Record blind spots at night." />
+    </main>
+    <script>
+      const canvas = document.querySelector('.crew-canvas');
+      function fitCrewCanvas() {
+        const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+        canvas.style.setProperty('--canvas-scale', scale);
+      }
+      fitCrewCanvas();
+      window.addEventListener('resize', fitCrewCanvas);
+    </script>
+    <script>
+      (() => {
+        const crews = [
+          ['.crew-pigeon', 'pigeon-dialogue-01.html'],
+          ['.crew-rat', 'rat.html'],
+          ['.crew-cat', 'cat.html'],
+        ];
+        crews.forEach(([selector, destination]) => {
+          document.querySelector(selector).addEventListener('click', () => {
+            window.location.assign(destination);
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

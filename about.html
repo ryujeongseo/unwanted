@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Campaign</title>
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body class="about-page">
+    <main class="about-canvas" aria-label="About campaign">
+      <img
+        class="about-layer about-layer--bg"
+        src="assets/images/about/about-bg.jpg"
+        alt=""
+      />
+      <a
+        class="about-layer about-layer--back"
+        href="index.html"
+        aria-label="Back to intro"
+      >
+        <img src="assets/images/about/back-button.png" alt="Back" />
+      </a>
+      <img
+        class="about-layer about-layer--title"
+        src="assets/images/about/about-title.png"
+        alt="About Campaign"
+      />
+      <img
+        class="about-layer about-layer--crew"
+        src="assets/images/about/we-need-crew.png"
+        alt="We need crew"
+      />
+      <img
+        class="about-layer about-layer--heading"
+        src="assets/images/about/intro-heading.png"
+        alt="The city was never yours alone!"
+      />
+      <section class="about-intro-text" aria-label="Campaign introduction">
+        <p>도시는 인간이 지나간 자리마다<br />버려진 공간과 잊힌 흔적을 남겼다.</p>
+        <p>하지만 그곳을 가장 먼저 감지한 존재들은<br />사람들이 불편해하던 도시의 크루들이었다.</p>
+        <p>UNWANTED는 그 신호를 발견한 시민을<br />새로운 협력자로 스카우트한다.</p>
+      </section>
+      <img
+        class="about-layer about-layer--board"
+        src="assets/images/about/campaign-board.png"
+        alt="Campaign mission board"
+      />
+    </main>
+    <script>
+      // Scale the complete desktop composition; all layer coordinates stay fixed.
+      const canvas = document.querySelector('.about-canvas');
+      function fitAboutCanvas() {
+        const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+        canvas.style.setProperty('--canvas-scale', scale);
+      }
+      fitAboutCanvas();
+      window.addEventListener('resize', fitAboutCanvas);
+    </script>
+    <script>
+      (() => {
+        const heading = document.querySelector('.about-layer--heading');
+        const intro = document.querySelector('.about-intro-text');
+        const crew = document.querySelector('.about-layer--crew');
+        const characters = [];
+        const originalText = [];
+
+        // Invisible inline characters retain the complete text's layout space.
+        intro.querySelectorAll('p').forEach((paragraph) => {
+          Array.from(paragraph.childNodes).forEach((node) => {
+            if (node.nodeType !== Node.TEXT_NODE) return;
+            const fragment = document.createDocumentFragment();
+            const spans = Array.from(node.textContent, (character) => {
+              const span = document.createElement('span');
+              span.className = 'about-typing-character';
+              span.textContent = character;
+              fragment.append(span);
+              characters.push(span);
+              return span;
+            });
+            if (!spans.length) return;
+            originalText.push({ node, spans });
+            node.replaceWith(fragment);
+          });
+        });
+        crew.classList.add('about-crew--waiting');
+
+        let started = false;
+        function startTyping() {
+          if (started) return;
+          started = true;
+          let index = 0;
+          function revealNext() {
+            if (index < characters.length) {
+              characters[index++].classList.remove('about-typing-character');
+            }
+            if (index < characters.length) {
+              window.setTimeout(revealNext, 40);
+              return;
+            }
+            // Restore the original text nodes for the exact final static markup.
+            originalText.forEach(({ node, spans }) => {
+              spans[0].replaceWith(node);
+              spans.slice(1).forEach((span) => span.remove());
+            });
+            crew.classList.replace('about-crew--waiting', 'about-crew--stamp');
+          }
+          revealNext();
+        }
+
+        const entrance = heading.getAnimations().find(
+          (animation) => animation.animationName === 'about-heading-enter'
+        );
+        if (entrance) {
+          entrance.finished.then(startTyping);
+        } else {
+          startTyping();
+        }
+      })();
+    </script>
+  </body>
+</html>

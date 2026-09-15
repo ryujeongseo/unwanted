@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAGGY — Pigeon Mission Guide</title>
+    <link rel="stylesheet" href="css/pigeon-mission-guide.css" />
+    <script src="js/pigeon-mission-guide.js" defer></script>
+  </head>
+  <body>
+    <main class="guide-canvas" aria-label="Pigeon Mission Guide">
+      <img class="guide-layer guide-bg" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-bg.png" alt="" />
+      <a class="guide-layer guide-back" href="pigeon-crew-detail.html" aria-label="Pigeon Crew Detail로 돌아가기">
+        <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-back-button.png" alt="BACK" />
+      </a>
+      <section class="guide-stage guide-book" aria-label="MISSION GUIDE — 도시 흔적 기록">
+        <img class="guide-layer guide-book-image" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-book-base.png" alt="MISSION BRIEF: 훼손, 방치, 오염의 흔적을 발견하고, 사진과 위치를 기록하라! PIGEON CREW: 사람들이 외면한 흔적을 기록하는 크루. MISSION RULE: 공공장소의 훼손 흔적을 발견해야 해. 흔적이 보이는 현장을 사진으로 기록해야 해. 기록한 장소의 위치를 태그해야 해." />
+        <div class="objective-target-label guide-text">TARGET</div>
+        <div class="objective-target guide-text">80</div>
+        <div class="objective-divider" aria-hidden="true"></div>
+        <div class="objective-current-label guide-text">CURRENT</div>
+        <div class="objective-count guide-text" data-count="42">42</div>
+        <div class="objective-track guide-track" role="progressbar" aria-label="Objective progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52">
+          <span class="guide-fill"></span>
+        </div>
+        <span class="objective-percent guide-text">52%</span>
+      </section>
+      <img class="guide-layer guide-target guide-stage" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-target-area.png" alt="TARGET AREA — TRACE ZONE 02. STATUS: UNRECORDED. RISK LEVEL: LOW. RANGE: 300M." />
+      <section class="guide-stage guide-challenge" aria-label="CITY RECOVERY CHALLENGE">
+        <img class="guide-layer guide-challenge-image" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-challenge-board.png" alt="CITY RECOVERY CHALLENGE — /100. CIVILIANS ACTIVE. YOUR IMPACT: +3 TRACE POINT." />
+        <span class="challenge-count guide-text" data-count="42" aria-label="Recovery count">42</span>
+        <span class="challenge-active guide-text" data-count="19" aria-label="Active civilians">19</span>
+        <div class="challenge-track guide-track" role="progressbar" aria-label="City recovery design progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="58.68">
+          <span class="guide-fill"></span>
+        </div>
+      </section>
+      <div class="guide-stage guide-start">
+        <a class="guide-layer guide-start-button" href="pigeon-mission-action.html">
+          <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-start-button.png" alt="MISSION START" />
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

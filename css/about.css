@@ -1,0 +1,178 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.about-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+  transform-origin: center;
+}
+
+.about-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+/* This supplied background is already cropped to the outer Figma frame. */
+.about-layer--bg {
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  transform: scale(1.03);
+  transform-origin: center center;
+}
+
+/* Coordinates relative to aboutcampaign (1:5345), including group offset. */
+.about-layer--back {
+  left: 91.71px;
+  top: 92.6592px;
+  width: 188.8528px;
+  height: 67.0708px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.18s ease;
+}
+
+.about-layer--back:hover {
+  transform: scale(1.03);
+}
+
+.about-layer--back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.about-layer--back:focus-visible {
+  outline: 2px solid #ffe003;
+  outline-offset: 4px;
+}
+
+.about-layer--title {
+  left: 106.48px;
+  top: 195.5582px;
+  width: 554.3825px;
+  height: 261.0618px;
+}
+
+.about-layer--heading {
+  left: 122.42px;
+  top: 488.05px;
+  width: 614px;
+  height: 65px;
+  animation: about-heading-enter 0.55s ease-out 0.3s 1 both;
+}
+
+@keyframes about-heading-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-layer--crew {
+  left: 121.59px;
+  top: 931.39px;
+  width: 276px;
+  height: 55px;
+}
+
+.about-layer--board {
+  left: 859.4487px;
+  top: 176.8853px;
+  width: 967.0636px;
+  height: 842.0447px;
+}
+
+/* The intro-text group includes two rules; the first text node starts below it. */
+.about-intro-text {
+  position: absolute;
+  left: 121.9319px;
+  top: 570.57px;
+  width: 436.2041px;
+  height: 347.44px;
+  color: #fff5eb;
+  font-family: 'Arial', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0;
+}
+
+.about-intro-text p {
+  position: absolute;
+  left: 0.0981px;
+  top: 30.73px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.about-intro-text p:nth-child(2) {
+  top: 135.73px;
+}
+
+.about-intro-text p:nth-child(3) {
+  top: 240.73px;
+}
+
+.about-intro-text::before,
+.about-intro-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2.44px;
+  background: currentColor;
+  opacity: 0.45;
+  clip-path: polygon(0 20%, 21% 8%, 48% 22%, 68% 0, 87% 32%, 100% 65%, 97% 80%, 70% 58%, 48% 85%, 23% 66%, 0 100%);
+}
+
+.about-intro-text::before {
+  top: 0;
+}
+
+.about-intro-text::after {
+  top: 345px;
+}
+
+.about-typing-character {
+  opacity: 0;
+}
+
+.about-crew--waiting {
+  opacity: 0;
+}
+
+.about-crew--stamp {
+  animation: about-crew-stamp 0.35s ease-out 1 both;
+}
+
+@keyframes about-crew-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.35) rotate(-3deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(0.94) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}

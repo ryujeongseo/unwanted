@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "ATP Tobeloved";
+  src: url("../assets/fonts/ATP Tobeloved.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.detail-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+  transform-origin: center;
+}
+
+.detail-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+.detail-layer > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Frame 7:6691 relative positions; PNGs retain their 2x export ratios.
+   Recovery uses visible artwork bounds, excluding an empty Figma text node. */
+.detail-bg { left: -1.19px; top: -2.37px; width: 1922px; }
+.detail-back { left: 87.35px; top: 89.4492px; width: 189.5px; }
+.detail-crew-file { left: 93.49px; top: 207.76px; width: 541.5px; }
+.detail-mission { left: 647.91px; top: 207.77px; width: 399px; }
+.detail-reward { left: 231.64px; top: 543.62px; width: 402px; }
+.detail-recovery { left: 649.49px; top: 455.79px; width: 415px; }
+.detail-character { left: 1178.2338px; top: 125.4799px; width: 678px; }
+.detail-join { position: absolute; inset: 0; pointer-events: none; }
+.detail-join-button { left: 217.5px; top: 848.212px; width: 762px; pointer-events: auto; }
+.detail-join-label { left: 142.51px; top: 835.61px; width: 246.5px; }
+
+.detail-back,
+.detail-join-button {
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+
+.detail-back:hover,
+.detail-join-button:hover {
+  transform: scale(1.03);
+}
+
+/* Only the blank current-number and bar areas are populated dynamically. */
+.recovery-count {
+  position: absolute;
+  left: 129.44px;
+  top: 121.85px;
+  font-family: "ATP Tobeloved";
+  font-size: 58.84px;
+  font-weight: 400;
+  line-height: 70px;
+  color: #000;
+}
+
+.recovery-track {
+  position: absolute;
+  left: 56.5px;
+  top: 204.85px;
+  width: 307.39px;
+  height: 12.87px;
+  border: 0.5px solid #000;
+  background: #fff5eb;
+}
+
+.recovery-fill {
+  display: block;
+  width: 164.22px;
+  height: 100%;
+  background: #ffe003;
+  transform-origin: left center;
+}

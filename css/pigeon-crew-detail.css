@@ -43,13 +43,13 @@ body {
 .detail-bg { left: -1.19px; top: -2.37px; width: 1922px; }
 .detail-back { left: 87.35px; top: 89.4492px; width: 189.5px; }
 .detail-crew-file { left: 93.49px; top: 207.76px; width: 541.5px; }
-.detail-mission { left: 647.91px; top: 207.77px; width: 399px; }
-.detail-reward { left: 231.64px; top: 543.62px; width: 402px; }
-.detail-recovery { left: 649.49px; top: 455.79px; width: 415px; }
+.detail-mission { left: 648.91px; top: 235.77px; width: 399px; }
+.detail-reward { left: 274.64px; top: 543.62px; width: 402px; }
+.detail-recovery { left: 695.49px; top: 479.79px; width: 415px; }
 .detail-character { left: 1178.2338px; top: 125.4799px; width: 678px; }
 .detail-join { position: absolute; inset: 0; pointer-events: none; }
-.detail-join-button { left: 217.5px; top: 848.212px; width: 762px; pointer-events: auto; }
-.detail-join-label { left: 142.51px; top: 835.61px; width: 246.5px; }
+.detail-join-button { left: 304.43px; top: 868.6089px; width: 675.77px; pointer-events: auto; }
+.detail-join-label { left: 180.51px; top: 843.61px; width: 246.5px; }
 
 .detail-back,
 .detail-join-button {
@@ -79,11 +79,13 @@ body {
 .recovery-track {
   position: absolute;
   left: 56.5px;
-  top: 204.85px;
+  top: 199.85px;
   width: 307.39px;
   height: 12.87px;
-  border: 0.5px solid #000;
-  background: #fff5eb;
+  border: none;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #ccc;
 }
 
 .recovery-fill {
@@ -91,5 +93,6 @@ body {
   width: 164.22px;
   height: 100%;
   background: #ffe003;
+  border-radius: 999px;
   transform-origin: left center;
 }

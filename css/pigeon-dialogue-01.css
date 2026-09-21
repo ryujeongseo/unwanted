@@ -14,10 +14,6 @@ body {
   background: #181818;
 }
 
-.filter-definitions {
-  position: absolute;
-}
-
 .dialogue-canvas {
   position: absolute;
   left: 50%;
@@ -37,10 +33,10 @@ body {
 
 /* All coordinates are relative to pigeon-dialogue-01 (5:3641). */
 .dialogue-bg {
-  left: -27.74px;
-  top: -51.85px;
-  width: 1972.96px;
-  height: 1179.77px;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
 }
 .dialogue-back {
   left: 87.35px;
@@ -60,17 +56,14 @@ body {
   width: 100%;
   height: 100%;
 }
-.dialogue-character {
-  left: 301.1159px;
-  top: 133.9173px;
-  width: 485.7041px;
-  height: 853.7532px;
-}
+
 .dialogue-box {
-  left: 815.58px;
-  top: 161.0503px;
-  width: 754.9449px;
-  height: 386.2367px;
+  left: 421.561px;
+  top: 698.5196px;
+  width: 1058.8297px;
+  height: 239.8405px;
+  opacity: 0;
+  z-index: 2;
 }
 .choice {
   padding: 0;
@@ -79,16 +72,16 @@ body {
   cursor: pointer;
 }
 .choice-1 {
-  left: 920.985px;
-  top: 597.6px;
-  width: 638.165px;
-  height: 134.5586px;
+  left: 1232.1086px;
+  top: 447.5091px;
+  width: 419.8047px;
+  height: 92.6087px;
 }
 .choice-2 {
-  left: 924.7527px;
-  top: 747.9985px;
-  width: 637.2473px;
-  height: 126.4545px;
+  left: 1268.1187px;
+  top: 546.3091px;
+  width: 419.8047px;
+  height: 92.6087px;
 }
 .choice img {
   position: absolute;
@@ -99,7 +92,6 @@ body {
   pointer-events: none;
 }
 .choice-hover {
-  filter: url("#choice-yellow");
   opacity: 0;
   transition: opacity 0.15s ease;
 }
@@ -107,47 +99,23 @@ body {
   opacity: 1;
 }
 
-.dialogue-character {
-  animation: dialogue-character-enter 0.55s ease-out 0.2s 1 both;
-}
-
-@keyframes dialogue-character-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Cover only the baked-in dialogue, leaving the bubble and TAGGY label intact. */
+/* HTML copy aligned to the latest frame-relative text positions. */
 .dialogue-copy {
   position: absolute;
-  left: 1000px;
-  top: 280px;
-  width: 480px;
-  height: 180px;
-  background: #fff5eb;
+  left: 724.3101px;
+  top: 783.66px;
+  width: 449px;
+  height: 73px;
   color: #000;
   font-family: "KMU80TTFHaeongSans";
-  font-size: 38px;
+  font-size: 28px;
   font-weight: 400;
-  line-height: 45px;
+  line-height: 32px;
+  z-index: 3;
 }
 .dialogue-copy p {
-  position: absolute;
-  left: 9.6px;
-  top: 13.02px;
   margin: 0;
   white-space: nowrap;
-}
-.dialogue-copy p:nth-child(2) {
-  top: 66.02px;
-}
-.dialogue-copy p:nth-child(3) {
-  top: 140.02px;
 }
 
 .choice-entrance {
@@ -159,56 +127,46 @@ body {
   height: 100%;
 }
 
-/* Hide only the PNG's wording; keep its arrow, outline and hover artwork. */
-.choice-text-cover {
-  position: absolute;
-  left: 145px;
-  top: 35px;
-  width: 270px;
-  height: 53px;
-  background: #fff5eb;
-  pointer-events: none;
-}
-.choice-2 .choice-text-cover {
-  top: 32px;
-  width: 325px;
-  height: 58px;
-}
+/* Text and arrows stay above the paired default/hover bubble images. */
+
 .choice-copy {
   position: absolute;
-  left: 153.375px;
-  top: 42.09px;
+  left: 87.8014px;
+  top: 31.691px;
   color: #000;
   font-family: "KMU80TTFHaeongSans";
-  font-size: 40px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 45px;
+  line-height: 25px;
   white-space: nowrap;
   text-align: left;
   pointer-events: none;
 }
-.choice-2 .choice-copy {
-  left: 153.931px;
-  top: 33.5954px;
-  transform: rotate(1.57deg);
-  transform-origin: left top;
-}
 
 .show-scene-two
-  > :is(.dialogue-character, .dialogue-box, .dialogue-copy, .choice-entrance) {
+  > :is(
+    .dialogue-character,
+    .dialogue-box,
+    .dialogue-copy,
+    .dialogue-next,
+    .choice-entrance
+  ) {
   display: none;
 }
 .scene-two-character {
-  left: 215.718px;
-  top: 133.9173px;
-  width: 656.5px;
-  height: 844px;
+  left: 735.7987px;
+  top: 147px;
+  width: 538.6316px;
+  height: auto;
+  opacity: 0;
 }
 .scene-two-box {
-  left: 815.58px;
-  top: 161.0503px;
-  width: 819.5px;
-  height: 338px;
+  left: 421.561px;
+  top: 698.5196px;
+  width: 1058.8297px;
+  height: 239.8405px;
+  opacity: 0;
+  z-index: 2;
 }
 .scene-two-box > img {
   display: block;
@@ -217,33 +175,28 @@ body {
 }
 .scene-two-copy {
   position: absolute;
-  left: 165px;
-  top: 145px;
-  width: 650px;
-  height: 120px;
+  left: 302.7491px;
+  top: 85.1404px;
+  width: 449px;
+  height: 73px;
 }
 .scene-two-copy p {
   margin: 0;
   white-space: nowrap;
 }
 .scene-two-copy p + p {
-  margin-top: 8px;
+  margin-top: 9px;
 }
 .scene-two-next {
-  margin-left: 0.2em;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: #000;
-  font-family: inherit;
-  font-size: 0.85em;
-  line-height: inherit;
-  vertical-align: baseline;
-  cursor: pointer;
+  position: absolute;
+  left: 894.519px;
+  top: 159.3704px;
 }
+.dialogue-next:not([hidden]),
 .scene-two-next:not([hidden]) {
   animation: scene-two-next-pulse 0.9s ease-in-out infinite;
 }
+.dialogue-next:hover,
 .scene-two-next:hover {
   transform: scale(1.1);
 }
@@ -254,32 +207,24 @@ body {
     opacity: 1;
   }
   50% {
-    opacity: 0.35;
+    opacity: 0.3;
   }
 }
 
 /* Scene 3 exports are 2x; preserve their intrinsic ratios independently of Scene 2. */
 .scene-two-character[src$="pigeon-scene-03-character.png"] {
-  top: 200px;
-  width: 550px;
-  height: auto;
-}
-.scene-two-box:has(> img[src$="pigeon-scene-03-dialogue.png"]) {
-  top: 221.0503px;
-  width: 822.5px;
-  height: auto;
-}
-.scene-two-box > img[src$="pigeon-scene-03-dialogue.png"] {
-  width: 100%;
+  left: 737.2012px;
+  top: 147px;
+  width: 455.4706px;
   height: auto;
 }
 
 .scene-three-choice-entrance {
   position: absolute;
-  left: 920.985px;
-  top: 617.6px;
-  width: 639px;
-  height: 135px;
+  left: 1200.1086px;
+  top: 617.5091px;
+  width: 419.8047px;
+  height: 92.6087px;
 }
 .scene-three-detail-choice {
   display: block;
@@ -294,25 +239,70 @@ body {
   transition: transform 0.18s ease-out;
 }
 .scene-three-detail-choice:hover {
-  transform: scale(1.04);
+  transform: scale(1);
 }
 .scene-three-detail-choice img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 .scene-three-detail-choice .choice-hover {
   transition: opacity 0.18s ease-out;
 }
-.scene-three-detail-choice span {
+
+.dialogue-character {
+  left: 729px;
+  top: 147px;
+  width: 462.8992px;
+  height: 846.3726px;
+  opacity: 0;
+}
+
+.dialogue-copy p + p {
+  margin-top: 9px;
+}
+
+.choice-arrow {
   position: absolute;
-  inset: 0;
-  transform: translateX(-20px) rotate(-2deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "KMU80TTFHaeongSans";
-  font-size: 40px;
-  line-height: 45px;
-  white-space: nowrap;
+  left: 41.5813px;
+  top: 28.6409px;
+  color: #000;
+  font: 26px/31px "KMU80TTFHaeongSans";
+  pointer-events: none;
+}
+
+/* Scene 1 frame-relative text offsets; keep Scene 3's custom choice untouched. */
+.choice-1 .choice-copy {
+  left: 87.8014px;
+  top: 29.6909px;
+}
+.choice-2 .choice-copy {
+  left: 87.7914px;
+  top: 29.6809px;
+}
+.choice-1 .choice-arrow {
+  left: 41.5813px;
+  top: 26.6409px;
+}
+.choice-2 .choice-arrow {
+  left: 41.5713px;
+  top: 26.6309px;
+}
+
+.dialogue-next {
+  position: absolute;
+  left: 1316.08px;
+  top: 857.89px;
+  z-index: 3;
+}
+
+.dialogue-next,
+.scene-two-next {
+  width: 28.29px;
+  height: 19.13px;
+  padding: 0;
+  border: 0;
+  background: #000;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  cursor: pointer;
 }

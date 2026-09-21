@@ -8,14 +8,10 @@
   let state = "scene-one";
   const sceneThreeLines = [
     "사람들은 보고 싶은 것만 봐.",
-    "그래서 난 사람들이 지나친",
-    "도시의 흔적을 기록해.",
+    "그래서 난 사람들이 지나친 도시의 흔적을 기록해.",
   ];
 
   function showNext() {
-    const lastLine = copy.lastElementChild;
-    lastLine.removeAttribute("aria-hidden");
-    lastLine.append(next);
     next.hidden = false;
   }
 
@@ -35,22 +31,37 @@
       "assets/images/pigeon-dialogue-01/pigeon-scene-03-character.png";
     const dialogueImage = box.querySelector("img");
     dialogueImage.src =
-      "assets/images/pigeon-dialogue-01/pigeon-scene-03-dialogue.png";
+      "assets/images/pigeon-dialogue-01/pigeon-scene-01-dialogue.png";
     await Promise.all([character.decode(), dialogueImage.decode()]);
     scene.setAttribute("aria-label", "TAGGY Scene 3");
-    const fadeIns = [character, box].map((element) =>
-      element.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 350,
-        easing: "ease-out",
-        fill: "forwards",
-      }),
-    );
+    character.style.opacity = "0";
+    box.style.opacity = "0";
     fadeOuts.forEach((animation) => animation.cancel());
-    await Promise.all(fadeIns.map((animation) => animation.finished));
+    await revealScene();
     state = "scene-three-typing";
     await typeLines(sceneThreeLines);
     state = "scene-three-complete";
     showNext();
+  }
+
+  async function revealScene() {
+    // Clear the previous entrance fills so the character stays hidden during the box fade.
+    character.getAnimations().forEach((animation) => animation.cancel());
+    box.getAnimations().forEach((animation) => animation.cancel());
+    character.style.opacity = "0";
+    box.style.opacity = "0";
+    await box.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration: 400,
+      easing: "ease-out",
+      fill: "forwards",
+    }).finished;
+    await character.animate(
+      [
+        { opacity: 0, transform: "translateY(10px)" },
+        { opacity: 1, transform: "translateY(0)" },
+      ],
+      { duration: 500, easing: "ease-out", fill: "forwards" },
+    ).finished;
   }
 
   async function typeLines(lines) {
@@ -93,24 +104,16 @@
     ]) {
       copy.style.setProperty(property, typography.getPropertyValue(property));
     }
-    await Promise.all(
-      [character, box].map(
-        (element) =>
-          element.animate(
-            [
-              { opacity: 0, transform: "translateY(8px)" },
-              { opacity: 1, transform: "translateY(0)" },
-            ],
-            { duration: 350, easing: "ease-out", fill: "both" },
-          ).finished,
-      ),
-    );
+    await revealScene();
     await typeLines(["근데 웃긴 건 알아?", "우리가 원래 여기 온 게 아니야."]);
     state = "first-complete";
     showNext();
   }
 
-  document.querySelectorAll(".choice").forEach((choice) => {
+  document
+    .querySelector(".dialogue-next")
+    .addEventListener("click", enterSceneTwo);
+  document.querySelectorAll(".choice-entrance .choice").forEach((choice) => {
     choice.addEventListener("click", enterSceneTwo);
   });
   next.addEventListener("click", async () => {
@@ -127,20 +130,31 @@
       fade.cancel();
       await typeLines([
         "UNWANTED는",
-        "그런 존재들의 진짜 역할을",
-        "다시 보여주는 크루야.",
+        "그런 존재들의 진짜 역할을 다시 보여주는 크루야.",
       ]);
       state = "scene-three-detail";
       const detail = scene.querySelector(".scene-three-choice-entrance");
       detail.inert = true;
+      const detailCopy = detail.querySelector(".choice-copy");
+      const detailText = detailCopy.textContent;
+      const detailLetters = Array.from(detailText, (letter) => {
+        const span = document.createElement("span");
+        span.textContent = letter;
+        span.style.opacity = "0";
+        return span;
+      });
+      detailCopy.replaceChildren(...detailLetters);
       detail.hidden = false;
-      await detail.animate(
-        [
-          { opacity: 0, transform: "translateY(8px)" },
-          { opacity: 1, transform: "translateY(0)" },
-        ],
-        { duration: 350, easing: "ease-out", fill: "both" },
-      ).finished;
+      await detail.animate([{ opacity: 0 }, { opacity: 1 }], {
+        duration: 350,
+        easing: "ease-out",
+        fill: "both",
+      }).finished;
+      for (let i = 0; i < detailLetters.length; i++) {
+        if (i) await wait(28);
+        detailLetters[i].style.opacity = "1";
+      }
+      detailCopy.textContent = detailText;
       detail.inert = false;
       return;
     }

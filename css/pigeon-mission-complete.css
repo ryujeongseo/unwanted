@@ -13,10 +13,10 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
    Foreground PNGs keep their intrinsic aspect ratios at half export resolution. */
 .complete-bg { left: 0; top: 0; width: 1920px; }
 .complete-back { left: 108.24px; top: 101.4992px; width: 479.5px; }
-.complete-title { left: 786px; top: 170.31px; width: 389px; }
-.card-one { left: 455.8301px; top: 305.02px; }
-.card-two { left: 808.5596px; top: 302.83px; }
-.card-three { left: 1159.5098px; top: 301.49px; }
+.complete-title { left: 756px; top: 170.3316px; width: 450.0613px; }
+.card-one { left: 473px; top: 305.02px; }
+.card-two { left: 825.7295px; top: 302.83px; }
+.card-three { left: 1176.6797px; top: 301.49px; }
 .reward-card > img { position: absolute; left: 0; top: 0; max-width: none; height: auto; }
 .card-one > .card-disabled { width: 310.03px; height: 442.24px; }
 .card-one > .card-active { width: 310.03px; height: 442.24px; }
@@ -27,12 +27,12 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .card-active, .card-stamp { opacity: 0; }
 .reward-card > .card-stamp { width: 164.5px; transform-origin: center; }
 .card-one > .card-stamp { left: 142.2501px; top: 255.837px; }
-.card-two > .card-stamp { left: 140.1702px; top: 266.527px; }
-.card-three > .card-stamp { left: 145.2102px; top: 267.057px; }
-.taggy-dialogue { left: 589px; top: 814.0103px; width: 784px; }
-.taggy-copy { position: absolute; left: 225.4px; top: 56.89px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 24px; font-weight: 400; line-height: 28px; }
+.card-two > .card-stamp { left: 140.1699px; top: 256.527px; }
+.card-three > .card-stamp { left: 145.21px; top: 257.057px; }
+.taggy-dialogue { left: 579px; top: 804.0103px; width: 784px; }
+.taggy-copy { position: absolute; left: 278px; top: 62.9897px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 20px; font-weight: 400; line-height: 23px; }
 .taggy-copy p { margin: 0; white-space: nowrap; }
-.taggy-copy p + p { margin-top: 7.88px; margin-left: 4.43px; }
+.taggy-copy p + p { margin-top: 10.88px; margin-left: 4.4297px; }
 .city-entrance { left: 1397.63px; top: 105.3392px; width: 447.5px; }
 .city-button { display: block; }
 .complete-back, .city-button { cursor: pointer; transform: scale(1); transform-origin: center; transition: transform 0.18s ease; }

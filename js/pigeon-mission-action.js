@@ -11,6 +11,19 @@
   const previews = [...canvas.querySelectorAll('.proof-preview')];
   const message = canvas.querySelector('.upload-message');
   const proofUrls = [];
+  const proofFiles = [];
+  let uploadFinished = Promise.resolve();
+  let finishUpload;
+  let saveError;
+  let pendingSave = Promise.resolve();
+  function persistProofs() {
+    const snapshot = proofFiles.slice();
+    pendingSave = pendingSave.then(() => window.PigeonProofStore.write(snapshot))
+      .then(() => { saveError = null; })
+      .catch(error => { saveError = error; });
+  }
+  // A fresh Mission Action starts a new proof set; BFCache retains the current one.
+  persistProofs();
   const assetRoot = 'assets/images/pigeon-mission-action/';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let emphasis;
@@ -55,7 +68,15 @@
   checks.forEach((box) => box.addEventListener('change', updateChecklist));
   window.addEventListener('pageshow', updateChecklist);
   updateChecklist();
-  complete.addEventListener('click', () => {
+  complete.addEventListener('click', async () => {
+    if (!checks.every((box) => box.checked)) return;
+    await uploadFinished;
+    persistProofs();
+    await pendingSave;
+    if (saveError) {
+      message.textContent = '사진을 저장하지 못했습니다. 다시 시도해 주세요.';
+      return;
+    }
     if (checks.every((box) => box.checked)) window.location.assign('pigeon-mission-complete.html');
   });
 
@@ -63,6 +84,7 @@
   input.addEventListener('change', async () => {
     if (addingFiles) return;
     addingFiles = true;
+    uploadFinished = new Promise(resolve => { finishUpload = resolve; });
     trigger.disabled = true;
     const files = [...input.files];
     input.value = '';
@@ -89,6 +111,8 @@
         const index = proofUrls.indexOf(url);
         if (index === -1) return;
         proofUrls.splice(index, 1);
+        proofFiles.splice(index, 1);
+        persistProofs();
         URL.revokeObjectURL(url);
         image.remove();
         remove.remove();
@@ -104,8 +128,11 @@
       });
       previews[proofUrls.length].append(image, remove);
       proofUrls.push(url);
+      proofFiles.push(file);
+      persistProofs();
     }
     addingFiles = false;
+    finishUpload();
     trigger.disabled = proofUrls.length === 3;
     message.textContent = `인증 이미지 ${proofUrls.length}/3장 선택됨`;
   });

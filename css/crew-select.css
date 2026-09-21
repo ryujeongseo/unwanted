@@ -54,10 +54,10 @@ body {
 }
 
 .crew-title {
-  left: 567.6095px;
-  top: 82.7756px;
-  width: 749.7104px;
-  height: 219.9644px;
+  left: 625px;
+  top: 127.5394px;
+  width: 669.6018px;
+  height: 196.4606px;
   transform-origin: center center;
   animation: crew-title-stamp 0.4s ease-out 0.25s 1 both;
 }
@@ -78,24 +78,24 @@ body {
 }
 
 .crew-pigeon {
-  left: 250.04px;
-  top: 293.31px;
-  width: 446.16px;
-  height: 651.60px;
+  left: 324px;
+  top: 333.8134px;
+  width: 411.7266px;
+  height: 601.3112px;
 }
 
 .crew-rat {
-  left: 730.75px;
-  top: 288.08px;
-  width: 419.50px;
-  height: 652.50px;
+  left: 767.6101px;
+  top: 328.987px;
+  width: 387.1239px;
+  height: 602.1418px;
 }
 
 .crew-cat {
-  left: 1195.14px;
-  top: 281.27px;
-  width: 434.32px;
-  height: 666.42px;
+  left: 1196.1597px;
+  top: 322.7026px;
+  width: 400.8003px;
+  height: 614.9875px;
 }
 
 :is(.crew-pigeon, .crew-rat, .crew-cat) {

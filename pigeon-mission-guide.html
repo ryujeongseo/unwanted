@@ -6,8 +6,15 @@
     <title>TAGGY — Pigeon Mission Guide</title>
     <link rel="stylesheet" href="css/pigeon-mission-guide.css" />
     <script src="js/pigeon-mission-guide.js" defer></script>
+    <link rel="stylesheet" href="css/signal-online.css" />
   </head>
   <body>
+    <div class="signal-stage">
+      <div class="signal-online">
+        <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
+        <span class="signal-online__dot" aria-hidden="true"></span>
+      </div>
+    </div>
     <main class="guide-canvas" aria-label="Pigeon Mission Guide">
       <img class="guide-layer guide-bg" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-bg.png" alt="" />
       <a class="guide-layer guide-back" href="pigeon-crew-detail.html" aria-label="Pigeon Crew Detail로 돌아가기">
@@ -36,7 +43,8 @@
       </section>
       <div class="guide-stage guide-start">
         <a class="guide-layer guide-start-button" href="pigeon-mission-action.html">
-          <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-start-button.png" alt="MISSION START" />
+          <img class="guide-start-default" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-start-button@2x.png" alt="MISSION START" />
+          <img class="guide-start-hover" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-start-button-hover@2x.png" alt="" aria-hidden="true" />
         </a>
       </div>
     </main>

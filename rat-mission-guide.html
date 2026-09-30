@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEAT — Rat Mission Guide</title>
+    <link rel="stylesheet" href="css/rat-mission-guide.css" />
+    <script src="js/rat-mission-guide.js" defer></script>
+    <link rel="stylesheet" href="css/signal-online.css" />
+  </head>
+  <body>
+    <main class="guide-canvas" aria-label="Rat Mission Guide">
+      <div class="signal-online">
+        <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
+        <span class="signal-online__dot" aria-hidden="true"></span>
+      </div>
+      <img class="guide-layer guide-bg" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-bg.png" alt="" />
+      <a class="guide-layer guide-back" href="rat-crew-detail.html" aria-label="Rat Crew Detail로 돌아가기">
+        <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-back-button.png" alt="BACK" />
+      </a>
+      <section class="guide-stage guide-book" aria-label="MISSION GUIDE — 골목 클린업">
+        <img class="guide-layer guide-book-image" src="assets/images/rat-mission-guide/rat-mission-guide-book-base.png" alt="MISSION GUIDE — RAT CREW / BEAT. 골목에 버려진 쓰레기를 수거하고, 구역의 회복도를 높여라!" />
+        <div class="objective-values" data-target="80" data-current="42">
+          <div class="objective-target guide-text" aria-label="Target">80</div>
+          <div class="objective-count guide-text" aria-label="Current">42</div>
+          <div class="objective-progress">
+            <div class="objective-track guide-track" role="progressbar" aria-label="Objective progress" aria-valuemin="0" aria-valuemax="100">
+              <span class="objective-fill"></span>
+            </div>
+            <div class="objective-percent-label">
+              <img src="assets/images/pigeon-mission-guide/pigeon-objective-percent-label.png" alt="" />
+              <span class="objective-percent guide-text"></span>
+            </div>
+          </div>
+          <span class="objective-remaining guide-text" aria-label="Left to target"></span>
+        </div>
+      </section>
+      <img class="guide-layer guide-target guide-stage" src="assets/images/rat-mission-guide/rat-mission-guide-target-area.png" alt="TARGET AREA — RAT CREW" />
+      <section class="guide-stage guide-challenge" aria-label="CITY RECOVERY CHALLENGE">
+        <img class="guide-layer guide-challenge-image" src="assets/images/rat-mission-guide/rat-mission-guide-challenge-board.png" alt="CITY RECOVERY CHALLENGE — /100. CIVILIANS ACTIVE. YOUR IMPACT: +3 RECOVERY POINT." />
+        <span class="challenge-count guide-text" data-count="42" aria-label="Recovery count">42</span>
+        <span class="challenge-active guide-text" data-count="19" aria-label="Active civilians">19</span>
+        <div class="challenge-track guide-track" role="progressbar" aria-label="City recovery design progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="58.68">
+          <span class="guide-fill"></span>
+        </div>
+      </section>
+      <div class="guide-stage guide-start">
+        <a class="guide-layer guide-start-button" href="rat-mission-action.html">
+          <img class="guide-start-default" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-start-button@2x.png" alt="MISSION START" />
+          <img class="guide-start-hover" src="assets/images/rat-mission-guide/rat-mission-guide-start-button-hover@2x.png" alt="" aria-hidden="true" />
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

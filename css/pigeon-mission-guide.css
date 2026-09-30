@@ -75,17 +75,20 @@ html, body {
   white-space: nowrap;
   color: #000;
 }
-.objective-target-label { left: 695.2px; top: 355.19px; font-size: 18px; line-height: 21px; color: #777; }
-.objective-current-label { left: 815.79px; top: 355.19px; font-size: 18px; line-height: 21px; }
-.objective-target { left: 704.63px; top: 379.41px; font-size: 40px; line-height: 47px; color: #777; }
-.objective-count { left: 832.9px; top: 379.41px; font-size: 40px; line-height: 47px; }
-.objective-divider { position: absolute; left: 785.25px; top: 358.45px; width: 1px; height: 77.04px; background: #777; }
-.objective-percent { left: 921.66px; top: 445.72px; font-size: 16px; line-height: 19px; }
 .guide-track { position: absolute; border-radius: 999px; overflow: hidden; background: #ccc; }
-.objective-track { left: 656.13px; top: 449.67px; width: 253.84px; height: 15.04px; }
 .guide-fill { display: block; height: 100%; background: #ffe003; border-radius: 999px; transform-origin: left; }
-.objective-track .guide-fill { width: 52%; }
-.challenge-count { left: 300.15px; top: 822.62px; font-size: 85px; line-height: 100px; color: #fff5eb; }
+.challenge-count { left: 302.15px; top: 825.62px; font-size: 80px; line-height: 100px; color: #fff5eb; }
 .challenge-active { left: 666.73px; top: 805.62px; font-size: 85px; line-height: 100px; color: #fff5eb; }
 .challenge-track { left: 305.17px; top: 931.25px; width: 280.84px; height: 14px; }
 .challenge-track .guide-fill { width: 164.8px; }
+
+/* Objective coordinates relative to the 1920 × 1080 Figma frame. */
+.objective-target { left: 708.33px; top: 368.74px; font-size: 56.63px; line-height: 68px; color: #666; }
+.objective-count { left: 836.95px; top: 368.74px; font-size: 56.63px; line-height: 68px; }
+.objective-remaining { left: 842.18px; top: 474.95px; font-size: 13.62px; line-height: 16px; }
+.objective-progress { position: absolute; left: 667.75px; top: 434.973px; width: 266.46px; height: 34.587px; }
+.objective-track { left: 0; top: 17.627px; width: 266.46px; height: 16.96px; }
+.objective-fill { position: absolute; left: 1.92px; top: 1.44px; width: calc(100% - 3.84px); height: 14.08px; border-radius: 999px; transform-origin: left; background: #ffe003; }
+.objective-percent-label { position: absolute; top: 0; width: 29.351px; height: 16.233px; }
+.objective-percent-label img { display: block; width: 100%; height: auto; }
+.objective-percent { left: 0; top: 0.457px; width: 100%; text-align: center; font-size: 9.2px; line-height: 11px; color: #fef4eb; }

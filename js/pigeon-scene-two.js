@@ -11,6 +11,17 @@
     "그래서 난 사람들이 지나친 도시의 흔적을 기록해.",
   ];
 
+  function reactToDialogue() {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // Individual transform properties leave the entrance transform untouched.
+    character.animate([
+      { rotate: "0deg" },
+      { rotate: "-0.6deg" },
+      { rotate: "0.3deg" },
+      { rotate: "0deg" },
+    ], { duration: 350, easing: "ease-in-out", fill: "none", iterations: 1 });
+  }
+
   function showNext() {
     next.hidden = false;
   }
@@ -128,6 +139,7 @@
       await fade.finished;
       copy.replaceChildren();
       fade.cancel();
+      reactToDialogue();
       await typeLines([
         "UNWANTED는",
         "그런 존재들의 진짜 역할을 다시 보여주는 크루야.",
@@ -135,26 +147,11 @@
       state = "scene-three-detail";
       const detail = scene.querySelector(".scene-three-choice-entrance");
       detail.inert = true;
-      const detailCopy = detail.querySelector(".choice-copy");
-      const detailText = detailCopy.textContent;
-      const detailLetters = Array.from(detailText, (letter) => {
-        const span = document.createElement("span");
-        span.textContent = letter;
-        span.style.opacity = "0";
-        return span;
-      });
-      detailCopy.replaceChildren(...detailLetters);
       detail.hidden = false;
-      await detail.animate([{ opacity: 0 }, { opacity: 1 }], {
-        duration: 350,
-        easing: "ease-out",
-        fill: "both",
-      }).finished;
-      for (let i = 0; i < detailLetters.length; i++) {
-        if (i) await wait(28);
-        detailLetters[i].style.opacity = "1";
-      }
-      detailCopy.textContent = detailText;
+      await detail.animate([
+        { opacity: 0, transform: "scale(0.96)" },
+        { opacity: 1, transform: "scale(1)" },
+      ], { duration: 300, easing: "ease-out", fill: "both" }).finished;
       detail.inert = false;
       return;
     }
@@ -173,6 +170,7 @@
     await fade.finished;
     copy.replaceChildren();
     fade.cancel();
+    reactToDialogue();
     await typeLines(["인간이 데려왔고,", "인간이 만든 도시에 남은 거지."]);
     state = "second-complete";
     showNext();

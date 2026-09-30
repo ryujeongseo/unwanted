@@ -68,7 +68,7 @@ body {
 .recovery-count {
   position: absolute;
   left: 129.44px;
-  top: 121.85px;
+  top: 127.85px;
   font-family: "ATP Tobeloved";
   font-size: 58.84px;
   font-weight: 400;
@@ -78,9 +78,9 @@ body {
 
 .recovery-track {
   position: absolute;
-  left: 56.5px;
-  top: 199.85px;
-  width: 307.39px;
+  left: 71.8695px;
+  top: 202.85px;
+  width: 276.651px;
   height: 12.87px;
   border: none;
   border-radius: 999px;
@@ -90,7 +90,7 @@ body {
 
 .recovery-fill {
   display: block;
-  width: 164.22px;
+  width: 147.798px;
   height: 100%;
   background: #ffe003;
   border-radius: 999px;

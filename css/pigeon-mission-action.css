@@ -14,10 +14,10 @@ button { padding: 0; border: 0; background: transparent; }
 .action-bg { left: 0; top: 0; width: 1920px; }
 .action-back { left: 87.35px; top: 89.4492px; width: 189.5px; transition: transform 0.18s ease; cursor: pointer; }
 .action-back:hover { transform: scale(1.03); }
-.action-title { left: 591.067px; top: 83.9434px; width: 718px; }
+.action-title { left: 648.507px; top: 133.9434px; width: 603.12px; }
 .action-status { left: 1409.0806px; top: 99.6832px; width: 420.42px; }
 /* Replace only the raster timer on the solid black portion of the status board. */
-.action-timer { position: absolute; left: 302px; top: 1px; width: 86px; height: 45px; background: #000; color: #fff5eb; font: 37px/44px "ATP Tobeloved"; white-space: nowrap; }
+.action-timer { position: absolute; left: 302px; top: 1px; width: 86px; height: 45px; box-sizing: border-box; padding-top: 3px; background: #000; color: #fff5eb; font: 37px/44px "ATP Tobeloved"; white-space: nowrap; }
 .upload-board { left: 208.1816px; top: 271.16px; width: 849px; }
 .upload-trigger { left: 575.89px; top: 381.68px; width: 127.5px; cursor: pointer; }
 .upload-trigger:disabled { cursor: default; }
@@ -29,7 +29,7 @@ button { padding: 0; border: 0; background: transparent; }
 .proof-remove { position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%; background: #181818; color: #fff5eb; font: 18px/22px Arial, sans-serif; text-align: center; cursor: pointer; z-index: 2; transform: scale(1); transition: transform 0.15s ease-out; }
 .proof-remove:hover { transform: scale(1.1); }
 .checklist-board { left: 1098.4232px; top: 271.4px; width: 619px; }
-.checklist-box { width: 39px; height: 41px; cursor: pointer; }
+.checklist-box { width: 39px; height: 41px; scale: 0.9; transform-origin: center; cursor: pointer; }
 .check-one { left: 1599.57px; top: 386.7521px; }
 .check-two { left: 1597.49px; top: 525.3322px; }
 .check-three { left: 1597.69px; top: 660.4921px; }
@@ -41,6 +41,6 @@ button { padding: 0; border: 0; background: transparent; }
 .complete-button { left: 1094.61px; top: 808.9187px; width: 616.5px; cursor: pointer; }
 .complete-button:disabled { cursor: default; }
 .complete-count { position: absolute; left: 461.18px; top: 23.46px; color: #e7e7e5; font: 43px/51px "ATP Tobeloved"; white-space: nowrap; }
-.complete-button:not(:disabled) .complete-count { color: #fff5eb; }
+.complete-button:not(:disabled) .complete-count { color: #000; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .checklist-box input:checked ~ .checkmark { animation: none; } }

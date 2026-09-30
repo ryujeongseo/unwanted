@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DASH — Cat Dialogue</title>
+    <link rel="stylesheet" href="css/cat-dialogue-01.css" />
+  </head>
+  <body>
+    <main class="dialogue-canvas" aria-label="DASH와의 대화">
+      <img
+        class="layer dialogue-bg"
+        src="assets/images/cat-dialogue-01/cat-bg.png"
+        alt=""
+      />
+      <a
+        class="layer dialogue-back"
+        href="crew-select.html"
+        aria-label="크루 선택으로 돌아가기"
+      >
+        <img
+          src="assets/images/pigeon-dialogue-01/pigeon-back-button.png"
+          alt="BACK"
+        />
+      </a>
+      <img
+        class="layer dialogue-character"
+        src="assets/images/cat-dialogue-01/cat-scene-01-character.png"
+        alt="고양이 크루 DASH"
+      />
+      <img
+        class="layer dialogue-box"
+        src="assets/images/cat-dialogue-01/cat-scene-01-dialogue.png"
+        alt="DASH"
+      />
+      <div
+        class="dialogue-copy"
+        aria-label="밤에 골목에서 나랑 마주치면 어떻게 해? 귀엽다고 다가와? 아니면 피해 가?"
+      >
+        <p>밤에 골목에서 나랑 마주치면 어떻게 해?</p>
+        <p>귀엽다고 다가와? 아니면 피해 가?</p>
+      </div>
+      <button
+        class="dialogue-next"
+        type="button"
+        hidden
+        aria-label="다음 대사"
+      ><img src="assets/images/cat-dialogue-01/cat_arrow.png" alt="" /></button>
+      <div class="layer choice-1 choice-entrance">
+        <button class="layer choice" type="button" aria-label="그냥 지나가지.">
+          <img
+            src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-01.png"
+            alt=""
+          />
+          <img
+            class="choice-hover"
+            src="assets/images/cat-dialogue-01/cat-scene-01-choice-01-hover.png"
+            alt=""
+          />
+          <span class="choice-number" aria-hidden="true">01</span>
+        <span class="choice-copy" aria-hidden="true">그냥 지나가지.</span>
+        </button>
+      </div>
+      <div class="layer choice-2 choice-entrance">
+        <button
+          class="layer choice"
+          type="button"
+          aria-label="솔직히 좀 경계해."
+        >
+          <img
+            src="assets/images/pigeon-dialogue-01/pigeon-scene-01-choice-01.png"
+            alt=""
+          />
+          <img
+            class="choice-hover"
+            src="assets/images/cat-dialogue-01/cat-scene-01-choice-01-hover.png"
+            alt=""
+          />
+          <span class="choice-number" aria-hidden="true">02</span>
+        <span class="choice-copy" aria-hidden="true">솔직히 좀 경계해.</span>
+        </button>
+      </div>
+      <section class="scene-two" hidden aria-label="DASH Scene 2">
+        <img
+          class="layer scene-two-character"
+          src="assets/images/cat-dialogue-01/cat-scene-02-character.png"
+          alt="고양이 크루 DASH"
+        />
+        <div class="layer scene-two-box">
+          <img
+            src="assets/images/cat-dialogue-01/cat-scene-01-dialogue.png"
+            alt="DASH"
+          />
+          <div class="scene-two-copy"></div>
+          <button
+            class="scene-two-next"
+            type="button"
+            hidden
+            aria-label="다음 대사"
+          ><img src="assets/images/cat-dialogue-01/cat_arrow.png" alt="" /></button>
+        </div>
+        <div class="scene-three-choice-entrance" hidden>
+          <a class="scene-three-detail-choice" href="cat-crew-detail.html" aria-label="DASH CREW DETAIL">
+            <img src="assets/images/cat-dialogue-01/cat-crew-detail.png" alt="" />
+            <img class="detail-hover" src="assets/images/cat-dialogue-01/cat-crew-detail-hover.png" alt="" />
+          </a>
+        </div>
+      </section>
+    </main>
+    <script>
+      const canvas = document.querySelector(".dialogue-canvas");
+      function fitDialogueCanvas() {
+        canvas.style.setProperty(
+          "--canvas-scale",
+          Math.min(innerWidth / 1920, innerHeight / 1080),
+        );
+      }
+      fitDialogueCanvas();
+      window.addEventListener("resize", fitDialogueCanvas);
+    </script>
+    <script>
+      (() => {
+        const character = document.querySelector(".dialogue-character");
+        const copy = document.querySelector(".dialogue-copy");
+        const choices = [...document.querySelectorAll(".choice-entrance")];
+        const letters = [];
+        const originals = [];
+        copy.querySelectorAll("p").forEach((paragraph) => {
+          originals.push([paragraph, paragraph.textContent]);
+          paragraph.setAttribute("aria-hidden", "true");
+          const spans = Array.from(paragraph.textContent, (letter) => {
+            const span = document.createElement("span");
+            span.textContent = letter;
+            span.style.opacity = "0";
+            letters.push(span);
+            return span;
+          });
+          paragraph.replaceChildren(...spans);
+        });
+        choices.forEach((choice) => {
+          choice.inert = true;
+        });
+        const choiceCopies = choices.map((choice) => {
+          const element = choice.querySelector(".choice-copy");
+          const text = element.textContent;
+          const spans = Array.from(text, (letter) => {
+            const span = document.createElement("span");
+            span.textContent = letter;
+            span.style.opacity = "0";
+            return span;
+          });
+          element.replaceChildren(...spans);
+          return { element, text, spans };
+        });
+        async function revealChoices() {
+          for (let i = 0; i < choices.length; i++) {
+            if (i > 0)
+              await new Promise((resolve) => window.setTimeout(resolve, 100));
+            const choice = choices[i];
+            const appearance = choice.animate(
+              [{ opacity: 0 }, { opacity: 1 }],
+              { duration: 350, easing: "ease-out", fill: "both" },
+            );
+            await appearance.finished;
+            choice.inert = false;
+            const { element, text, spans } = choiceCopies[i];
+            for (let j = 0; j < spans.length; j++) {
+              if (j > 0)
+                await new Promise((resolve) => window.setTimeout(resolve, 28));
+              spans[j].style.opacity = "1";
+            }
+            element.textContent = text;
+          }
+        }
+        let started = false;
+        function typeDialogue() {
+          if (started) return;
+          started = true;
+          let index = 0;
+          function reveal() {
+            if (index < letters.length) letters[index++].style.opacity = "1";
+            if (index < letters.length) {
+              window.setTimeout(reveal, 40);
+              return;
+            }
+            originals.forEach(([paragraph, text]) => {
+              paragraph.textContent = text;
+            });
+            revealChoices();
+          }
+          reveal();
+        }
+        async function enterSceneOne() {
+          const box = document.querySelector(".dialogue-box");
+          await Promise.allSettled([
+            document.fonts.load('28px "KMU80TTFHaeongSans"'),
+            ...[...document.querySelectorAll("img")].map((image) =>
+              image.decode(),
+            ),
+          ]);
+          await box.animate([{ opacity: 0 }, { opacity: 1 }], {
+            duration: 400,
+            easing: "ease-out",
+            fill: "forwards",
+          }).finished;
+          await character.animate(
+            [
+              { opacity: 0, transform: "translateY(10px)" },
+              { opacity: 1, transform: "translateY(0)" },
+            ],
+            { duration: 500, easing: "ease-out", fill: "forwards" },
+          ).finished;
+          typeDialogue();
+        }
+        enterSceneOne();
+      })();
+    </script>
+    <script src="js/cat-scene-two.js"></script>
+  </body>
+</html>

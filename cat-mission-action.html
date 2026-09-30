@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DASH — Cat Mission Action</title>
+    <link rel="stylesheet" href="css/cat-mission-action.css" />
+    <script src="js/cat-proof-store.js" defer></script>
+    <script src="js/cat-mission-action.js" defer></script>
+  </head>
+  <body>
+    <main class="action-canvas" aria-label="Cat Mission Action">
+      <img class="action-layer action-bg" src="assets/images/pigeon-mission-action/pigeon-mission-action-bg.png" alt="" />
+      <a class="action-layer action-back" href="cat-mission-guide.html" aria-label="Mission Guide로 돌아가기"><img src="assets/images/pigeon-mission-action/pigeon-mission-action-back-button.png" alt="BACK" /></a>
+      <img class="action-layer action-title" src="assets/images/cat-mission-action/cat-mission-action-title.png" alt="MISSION ACTION" />
+      <div class="action-layer action-status" aria-label="MISSION ACTIVE">
+        <img src="assets/images/pigeon-mission-action/pigeon-mission-action-status-board.png" alt="" />
+        <time class="action-timer" role="timer" aria-label="남은 미션 시간">30:00</time>
+      </div>
+      <section aria-label="UPLOAD PROOF">
+        <img class="action-layer upload-board" src="assets/images/cat-mission-action/cat-mission-action-upload-board.png" alt="UPLOAD PROOF — DROP YOUR PROOF HERE OR CLICK TO UPLOAD. 미션 수행 인증 사진을 업로드하세요. PHOTO PREVIEW" />
+        <button class="action-layer upload-trigger" type="button" aria-label="인증 이미지 추가 (최대 3장)"><img src="assets/images/pigeon-mission-action/pigeon-mission-action-upload-trigger.png" alt="" /></button>
+        <input id="proof-files" type="file" accept="image/*" multiple hidden />
+        <div class="action-layer proof-preview preview-one"><img src="assets/images/pigeon-mission-action/preview-01.png" alt="첫 번째 인증 사진" /></div>
+        <div class="action-layer proof-preview preview-two"><img src="assets/images/pigeon-mission-action/preview-01.png" alt="두 번째 인증 사진" /></div>
+        <div class="action-layer proof-preview preview-three"><img src="assets/images/pigeon-mission-action/preview-01.png" alt="세 번째 인증 사진" /></div>
+        <span class="sr-only upload-message" role="status"></span>
+      </section>
+      <section aria-label="MISSION CHECKLIST">
+        <img class="action-layer checklist-board" src="assets/images/cat-mission-action/cat-mission-action-checklist-board.png" alt="MISSION CHECKLIST — BLIND SPOTS: 사각지대 발견. PHOTO UPLOAD: 인증 사진 업로드. TARGET ZONE: 지정 구역 내 수행." />
+        <label class="action-layer checklist-box check-one"><input type="checkbox" aria-label="BLIND SPOTS — 사각지대 발견" /><img class="empty-check" src="assets/images/pigeon-mission-action/checkbox-01.png" alt="" /><img class="checkmark" src="assets/images/cat-mission-action/cat-mission-action-checkmark.png" alt="" /></label>
+        <label class="action-layer checklist-box check-two"><input type="checkbox" aria-label="PHOTO UPLOAD — 인증 사진 업로드" /><img class="empty-check" src="assets/images/pigeon-mission-action/checkbox-01.png" alt="" /><img class="checkmark" src="assets/images/cat-mission-action/cat-mission-action-checkmark.png" alt="" /></label>
+        <label class="action-layer checklist-box check-three"><input type="checkbox" aria-label="TARGET ZONE — 지정 구역 내 수행" /><img class="empty-check" src="assets/images/pigeon-mission-action/checkbox-01.png" alt="" /><img class="checkmark" src="assets/images/cat-mission-action/cat-mission-action-checkmark.png" alt="" /></label>
+      </section>
+      <button class="action-layer complete-button" type="button" disabled aria-label="COMPLETE CHECKLIST 0/3">
+        <img src="assets/images/pigeon-mission-action/pigeon-mission-action-complete-disabled.png" alt="COMPLETE CHECKLIST" />
+        <span class="complete-count" aria-live="polite">0/3</span>
+      </button>
+    </main>
+  </body>
+</html>

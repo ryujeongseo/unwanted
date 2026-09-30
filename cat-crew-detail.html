@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DASH — Cat Crew Detail</title>
+    <link rel="stylesheet" href="css/cat-crew-detail.css" />
+    <script src="js/cat-crew-detail.js" defer></script>
+    <link rel="stylesheet" href="css/signal-online.css" />
+  </head>
+  <body>
+    <main class="detail-canvas" aria-label="Cat Crew — DASH">
+      <div class="signal-online">
+        <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
+        <span class="signal-online__dot" aria-hidden="true"></span>
+      </div>
+      <img class="detail-layer detail-bg" src="assets/images/cat-crew-detail/cat-detail-bg.png" alt="" />
+      <a class="detail-layer detail-back" href="cat-dialogue-01.html" aria-label="DASH 대화로 돌아가기">
+        <img src="assets/images/pigeon-crew-detail/pigeon-detail-back-button.png" alt="BACK" />
+      </a>
+      <img class="detail-layer detail-crew-file detail-entrance" src="assets/images/cat-crew-detail/cat-detail-crew-file.png" alt="CREW FILE — CAT CREW / DASH" />
+      <img class="detail-layer detail-mission detail-entrance" src="assets/images/cat-crew-detail/cat-detail-mission.png" alt="MISSION — CAT CREW" />
+      <img class="detail-layer detail-reward detail-entrance" src="assets/images/cat-crew-detail/cat-detail-reward.png" alt="REWARD — CAT CREW" />
+      <section class="detail-layer detail-recovery detail-entrance" aria-label="RECOVERY STATUS — SAFE ROUTE RECORD: 42 / 80. 28 CIVILIANS ACTIVE">
+        <img src="assets/images/cat-crew-detail/cat-detail-recovery-status.png" alt="" />
+        <span class="recovery-count" aria-hidden="true">42</span>
+        <div class="recovery-track" role="progressbar" aria-label="Safe route record" aria-valuemin="0" aria-valuemax="80" aria-valuenow="42">
+          <span class="recovery-fill"></span>
+        </div>
+      </section>
+      <img class="detail-layer detail-character detail-entrance" src="assets/images/cat-crew-detail/cat-detail-character.png" alt="DASH / 대시" />
+      <div class="detail-join detail-entrance">
+        <a class="detail-layer detail-join-button" href="cat-mission-guide.html">
+          <img src="assets/images/pigeon-crew-detail/pigeon-detail-join-button.png" alt="JOIN CAT CREW" />
+        </a>
+        <img class="detail-layer detail-join-label" src="assets/images/cat-crew-detail/cat-detail-join-label.png" alt="05 JOIN CREW" />
+      </div>
+    </main>
+  </body>
+</html>

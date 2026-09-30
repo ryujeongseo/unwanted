@@ -1,19 +1,8 @@
-/* Independent 1920×1080 layer using Intro's centered, capped fit scale. */
-.signal-stage {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1920px;
-  height: 1080px;
-  z-index: 100;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(min(1, calc(100vw / 1920px), calc(100vh / 1080px)));
-  transform-origin: center;
-}
-
 /* Intro frame-relative bounds, including its inner artwork frame offset. */
 .signal-online {
   position: absolute;
+  z-index: 100;
+  pointer-events: none;
   left: 1629.6122px;
   top: 98.8247px;
   width: 191.7279px;

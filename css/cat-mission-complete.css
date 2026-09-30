@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "KMU80TTFHaeongSans";
+  src: url("../assets/fonts/KMU80TTFHaeongSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #181818; }
+.complete-canvas { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden; transform: translate(-50%, -50%) scale(var(--canvas-scale, 1)); transform-origin: center; }
+.complete-layer { position: absolute; display: block; max-width: none; height: auto; }
+.complete-layer[hidden] { display: none; }
+.complete-layer > img, .city-button > img { display: block; width: 100%; height: auto; }
+/* Frame 19:19122 coordinates, never canvas/global Figma coordinates.
+   Foreground PNGs keep their intrinsic aspect ratios at half export resolution. */
+.complete-bg { left: 0; top: 0; width: 1920px; }
+.complete-back { left: 87.2399979px; top: 89.4991989px; width: 478.8528442px;  height: 67.0708084px;}
+.complete-title { left: 734.96935px; top: 170.3316px; width: 450.0613px; }
+.card-one { left: 452px; top: 293.019989px; }
+.card-two { left: 804.7294922px; top: 290.8299866px; }
+.card-three { left: 1155.6796875px; top: 289.4899902px; }
+.reward-card > img { position: absolute; left: 0; top: 0; max-width: none; height: auto; }
+.card-one > .card-disabled { width: 310.0299988px; height: 442.2400208px; }
+.card-one > .card-active { width: 310.0299988px; height: 442.2400208px; }
+.card-two > .card-disabled { width: 310.039978px; height: 446.3100281px; }
+.card-two > .card-active { width: 310.039978px; height: 446.3100281px; }
+.card-three > .card-disabled { width: 311.8399658px; height: 443.1699829px; }
+.card-three > .card-active { width: 311.8399658px; height: 443.1699829px;  left: 0.7800293px;}
+.card-disabled, .card-active { object-fit: contain; }
+.card-active, .card-stamp { opacity: 0; }
+.reward-card > .card-stamp { width: 164.5px; transform-origin: center; }
+.card-one > .card-stamp { left: 142.2501526px; top: 255.8370056px;  width: 163.8514862px; height: 155.1928253px;}
+.card-two > .card-stamp { left: 140.1699219px; top: 256.5270081px;  width: 163.8610077px; height: 155.1828156px;}
+.card-three > .card-stamp { left: 145.2099609px; top: 257.0570068px;  width: 163.8514252px; height: 155.1928253px;}
+.dash-dialogue { left: 558px; top: 792.0102539px; width: 783.571106px;  height: 177.4198456px;}
+.dash-copy { position: absolute; left: 278px; text-align: center; top: 62.9897461px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 20px; font-weight: 400; line-height: 23px;  width: 320px; height: 56.8800049px;}
+.dash-copy p { margin: 0; white-space: nowrap; }
+.dash-copy p + p { margin-top: 10.88px; }
+.city-entrance { left: 1376.6300049px; top: 93.3392029px; width: 446.8399658px;  height: 67.0708008px;}
+.city-button { display: block; }
+.complete-back, .city-button { cursor: pointer; transform: scale(1); transform-origin: center; transition: transform 0.18s ease; }
+.complete-back:hover, .city-button:hover { transform: scale(1.03); }
+
+/* Preserve the empty dialogue line during and after typing. */
+.dash-copy p:empty { height: 23px; }
+
+.complete-back > img, .dash-dialogue > img, .city-button, .city-button > img { height: 100%; }

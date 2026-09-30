@@ -164,9 +164,14 @@
       return;
     }
     const animation = title.animate([
-      { opacity: 0, transform: 'scale(1.25)' },
-      { opacity: 1, transform: 'scale(1)' },
-    ], { duration: 350, easing: 'ease-out', fill: 'both' });
+      { offset: 0, opacity: 0, transform: 'translateX(0) scale(1.06) rotate(-1deg)' },
+      { offset: 0.4, opacity: 1, transform: 'translateX(0) scale(0.99) rotate(0.3deg)' },
+      { offset: 0.62, opacity: 1, transform: 'translateX(0) scale(1) rotate(0deg)' },
+      { offset: 0.7, opacity: 1, transform: 'translateX(-2px) scale(1) rotate(0deg)' },
+      { offset: 0.78, opacity: 1, transform: 'translateX(2px) scale(1) rotate(0deg)' },
+      { offset: 0.86, opacity: 1, transform: 'translateX(0) scale(1) rotate(0deg)' },
+      { offset: 1, opacity: 1, transform: 'translateX(0) scale(1) rotate(0deg)' },
+    ], { duration: 450, easing: 'ease-out', fill: 'both' });
     await animation.finished;
     title.style.opacity = '1';
     animation.cancel();

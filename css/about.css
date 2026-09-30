@@ -107,7 +107,7 @@ body {
   width: 436.2041px;
   height: 347.44px;
   color: #fff5eb;
-  font-family: 'Arial', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-family: 'KMU80TTF', sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 35px;
@@ -175,4 +175,11 @@ body {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
+}
+@font-face {
+  font-family: 'KMU80TTF';
+  src: url('../assets/fonts/KMU80TTFHaeongSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }

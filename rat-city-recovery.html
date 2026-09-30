@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CITY RECOVERY</title>
+    <link rel="stylesheet" href="css/rat-city-recovery.css" />
+    <script src="js/rat-proof-store.js" defer></script>
+    <script src="js/rat-city-recovery.js" defer></script>
+    <link rel="stylesheet" href="css/signal-online.css" />
+  </head>
+  <body>
+    <main class="city-canvas" aria-label="City Recovery">
+      <div class="signal-online">
+        <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
+        <span class="signal-online__dot" aria-hidden="true"></span>
+      </div>
+      <img class="city-layer city-bg" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-bg.png" alt="" />
+      <a class="city-layer city-back" href="rat-mission-complete.html" aria-label="Mission Complete로 돌아가기"><img src="assets/images/pigeon-city-recovery/pigeon-city-recovery-back-button.png" alt="BACK" /></a>
+      <img class="city-layer city-title" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-title.png" alt="CITY RECOVERY" />
+      <section class="city-photo" aria-label="업로드한 미션 사진의 회복 전후">
+        <div class="city-photo-area">
+          <img class="city-photo-gray" alt="" hidden />
+          <img class="city-photo-color" alt="업로드한 미션 사진" hidden />
+        </div>
+        <img class="city-layer city-photo-frame" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-photo-frame.png" alt="" />
+        <img class="city-layer city-before" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-before-label.png" alt="BEFORE" />
+        <img class="city-layer city-after" src="assets/images/rat-city-recovery/rat-city-recovery-after-label.png" alt="AFTER" aria-hidden="true" />
+        <img class="city-layer city-divider" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-divider.png" alt="" />
+      </section>
+      <section aria-label="Recovery statistics">
+        <span class="city-stat-divider city-stat-divider-first" aria-hidden="true"></span>
+        <span class="city-stat-divider city-stat-divider-second" aria-hidden="true"></span>
+        <img class="city-layer city-recovered-base" src="assets/images/pigeon-city-recovery/%20pigeon-city-recovery-recovered-base.png" alt="RECOVERED AREA" />
+        <div class="city-number city-recovered-number"><span data-count="67">0</span><span>%</span></div>
+        <div class="city-progress" role="progressbar" aria-label="Recovered area" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+        <img class="city-layer city-crew-base" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-crew-base.png" alt="TOTAL CREW /50" />
+        <span class="city-number city-crew-number" data-count="28">0</span>
+        <img class="city-layer city-impact-base" src="assets/images/pigeon-city-recovery/pigeon-city-recovery-impact-base.png" alt="TODAY’S IMPACT" />
+        <div class="city-number city-impact-number"><span>+</span><span data-count="3">0</span></div>
+      </section>
+      <a class="city-layer city-create" href="rat-crew-id.html" aria-label="CREATE YOUR CREW ID"><img src="assets/images/rat-city-recovery/rat-city-recovery-create-id.png" alt="" /></a>
+    </main>
+  </body>
+</html>

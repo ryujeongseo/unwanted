@@ -1,0 +1,314 @@
+@font-face {
+  font-family: "KMU80TTFHaeongSans";
+  src: url("../assets/fonts/KMU80TTFHaeongSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ATP Tobeloved";
+  src: url("../assets/fonts/ATP Tobeloved.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.dialogue-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+  transform-origin: center;
+}
+
+.layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+/* Layout coordinates copied from the completed Pigeon Dialogue. */
+.dialogue-bg {
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+}
+.dialogue-back {
+  left: 87.35px;
+  top: 89.4492px;
+  width: 188.843px;
+  height: 67.0708px;
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+.dialogue-back:hover {
+  transform: scale(1.03);
+}
+.dialogue-back img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dialogue-box {
+  left: 410.581px;
+  top: 707.3166px;
+  width: 1058.8297px;
+  height: 264.8834px;
+  opacity: 0;
+  z-index: 2;
+  object-fit: contain;
+  object-position: left top;
+}
+.choice {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.choice-1 {
+  left: 1162.5551px;
+  top: 541.0755px;
+  width: 405.2657px;
+  height: 89.3903px;
+}
+.choice-2 {
+  left: 1207.9451px;
+  top: 634.9455px;
+  width: 405.2657px;
+  height: 89.3903px;
+}
+.choice img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  object-fit: contain;
+}
+.choice-hover {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.choice:hover .choice-hover {
+  opacity: 1;
+}
+
+/* HTML copy aligned to the latest frame-relative text positions. */
+.dialogue-copy {
+  position: absolute;
+  left: 684.31px;
+  top: 795.66px;
+  width: 449px;
+  height: 73px;
+  color: #000;
+  font-family: "KMU80TTFHaeongSans";
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 32px;
+  z-index: 3;
+}
+.dialogue-copy p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.choice-entrance {
+  opacity: 0;
+}
+.choice-entrance > .choice {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Text and arrows stay above the paired default/hover bubble images. */
+
+.choice-copy {
+  position: absolute;
+  left: 87.8014px;
+  top: 31.691px;
+  color: #000;
+  font-family: "KMU80TTFHaeongSans";
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 25px;
+  white-space: nowrap;
+  text-align: left;
+  pointer-events: none;
+}
+
+.show-scene-two
+  > :is(
+    .dialogue-character,
+    .dialogue-box,
+    .dialogue-copy,
+    .dialogue-next,
+    .choice-entrance
+  ) {
+  display: none;
+}
+.scene-two-character {
+  left: 720px;
+  top: 147px;
+  width: 450px;
+  height: auto;
+  opacity: 0;
+}
+.scene-two-box {
+  left: 410.581px;
+  top: 707.3166px;
+  width: 1058.8297px;
+  height: 264.8834px;
+  opacity: 0;
+  z-index: 2;
+}
+.scene-two-box > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.scene-two-copy {
+  position: absolute;
+  left: 273.729px;
+  top: 88.3434px;
+  width: 449px;
+  height: 73px;
+}
+.scene-two-copy p {
+  margin: 0;
+  white-space: nowrap;
+}
+.scene-two-copy p + p {
+  margin-top: 9px;
+}
+.scene-two-next {
+  position: absolute;
+  left: 974.1036px;
+  top: 135.2434px;
+}
+.dialogue-next:hover,
+.scene-two-next:hover {
+  transform: scale(1.06);
+}
+
+
+/* Scene 3 exports are 2x; preserve their intrinsic ratios independently of Scene 2. */
+.scene-two-character[src$="cat-scene-03-character.png"] {
+  left: 630px;
+  top: 150px;
+  width: 800px;
+  height: auto;
+}
+
+.scene-three-choice-entrance {
+  position: absolute;
+  left: 1154.58px;
+  top: 624.9555px;
+  width: 464.8243px;
+  height: 134.4317px;
+  z-index: 4;
+}
+.scene-three-detail-choice {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.18s ease-out;
+}
+.scene-three-detail-choice:hover {
+  transform: scale(1.03);
+}
+.scene-three-detail-choice img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.dialogue-character {
+  left: 630px;
+  top: 140px;
+  width: 550px;
+  height: auto;
+  opacity: 0;
+}
+
+.dialogue-copy p + p {
+  margin-top: 9px;
+}
+
+
+/* Scene 1 frame-relative text offsets; keep Scene 3's custom choice untouched. */
+.choice-1 .choice-copy {
+  left: 91.5249px;
+  top: 28.7545px;
+}
+.choice-2 .choice-copy {
+  left: 91.5249px;
+  top: 28.7545px;
+}
+
+.dialogue-next {
+  position: absolute;
+  left: 1384.6846px;
+  top: 842.56px;
+  z-index: 3;
+}
+
+.dialogue-next,
+.scene-two-next {
+  width: 85.6101px;
+  height: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  transform-origin: center center;
+  transition: transform 0.18s ease-out;
+  cursor: pointer;
+}
+
+/* Image next control and independent final CTA. */
+.dialogue-next > img, .scene-two-next > img { display: block; width: 100%; height: auto; }
+.detail-hover { opacity: 0; transition: opacity 0.18s ease-out; }
+.scene-three-detail-choice:hover .detail-hover { opacity: 1; }
+.choice-number { position: absolute; left: 45.075px; top: 30.4145px; font: 22px/26px "ATP Tobeloved"; color: #0fdcd7; pointer-events: none; }
+.choice-2 .choice-number { left: 43.1449px; top: 30.4245px; }
+
+/* Opacity lives on the image; the button keeps its existing hover transform. */
+.dialogue-next:not([hidden]) > img,
+.scene-two-next:not([hidden]) > img {
+  animation: next-arrow-idle-opacity 1.2s ease-in-out infinite;
+}
+.dialogue-next:hover > img,
+.scene-two-next:hover > img {
+  animation: none;
+  opacity: 1;
+}
+@keyframes next-arrow-idle-opacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

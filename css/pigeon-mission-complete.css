@@ -12,28 +12,30 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 /* Frame 19:19122 coordinates, never canvas/global Figma coordinates.
    Foreground PNGs keep their intrinsic aspect ratios at half export resolution. */
 .complete-bg { left: 0; top: 0; width: 1920px; }
-.complete-back { left: 108.24px; top: 101.4992px; width: 479.5px; }
-.complete-title { left: 756px; top: 170.3316px; width: 450.0613px; }
-.card-one { left: 473px; top: 305.02px; }
-.card-two { left: 825.7295px; top: 302.83px; }
-.card-three { left: 1176.6797px; top: 301.49px; }
+.complete-back { left: 87.2399979px; top: 89.4991989px; width: 478.8528442px; height: 67.0708084px; }
+.complete-title { left: 734.96935px; top: 170.3316px; width: 450.0613px; }
+.card-one { left: 452px; top: 293.019989px; }
+.card-two { left: 804.7294922px; top: 290.8299866px; }
+.card-three { left: 1155.6796875px; top: 289.4899902px; }
 .reward-card > img { position: absolute; left: 0; top: 0; max-width: none; height: auto; }
-.card-one > .card-disabled { width: 310.03px; height: 442.24px; }
-.card-one > .card-active { width: 310.03px; height: 442.24px; }
-.card-two > .card-disabled { width: 310.04px; height: 446.31px; }
-.card-two > .card-active { width: 310.04px; height: 446.31px; }
-.card-three > .card-disabled { width: 311.84px; height: 443.17px; }
-.card-three > .card-active { width: 311.84px; height: 443.17px; }
+.card-one > .card-disabled { width: 310.0299988px; height: 442.2400208px; }
+.card-one > .card-active { width: 310.0299988px; height: 442.2400208px; }
+.card-two > .card-disabled { width: 310.039978px; height: 446.3100281px; }
+.card-two > .card-active { width: 310.039978px; height: 446.3100281px; }
+.card-three > .card-disabled { width: 311.8399658px; height: 443.1699829px; }
+.card-three > .card-active { left: 0.7800293px; width: 311.8399658px; height: 443.1699829px; }
 .card-active, .card-stamp { opacity: 0; }
 .reward-card > .card-stamp { width: 164.5px; transform-origin: center; }
-.card-one > .card-stamp { left: 142.2501px; top: 255.837px; }
-.card-two > .card-stamp { left: 140.1699px; top: 256.527px; }
-.card-three > .card-stamp { left: 145.21px; top: 257.057px; }
-.taggy-dialogue { left: 579px; top: 804.0103px; width: 784px; }
-.taggy-copy { position: absolute; left: 278px; top: 62.9897px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 20px; font-weight: 400; line-height: 23px; }
+.card-one > .card-stamp { left: 142.2501526px; top: 255.8370056px; width: 163.8514862px; height: 155.1928253px; }
+.card-two > .card-stamp { left: 140.1699219px; top: 256.5270081px; width: 163.8610077px; height: 155.1828156px; }
+.card-three > .card-stamp { left: 145.2099609px; top: 257.0570068px; width: 163.8514252px; height: 155.1928253px; }
+.taggy-dialogue { left: 558px; top: 792.0102539px; width: 783.571106px; height: 177.4198456px; }
+.taggy-copy { position: absolute; left: 278px; top: 62.9897461px; width: 320px; height: 56.8800049px; color: #fff5eb; font-family: "KMU80TTFHaeongSans"; font-size: 20px; font-weight: 400; line-height: 23px; }
 .taggy-copy p { margin: 0; white-space: nowrap; }
 .taggy-copy p + p { margin-top: 10.88px; margin-left: 4.4297px; }
-.city-entrance { left: 1397.63px; top: 105.3392px; width: 447.5px; }
+.city-entrance { left: 1376.6300049px; top: 93.3392029px; width: 446.8399658px; height: 67.0708008px; }
 .city-button { display: block; }
 .complete-back, .city-button { cursor: pointer; transform: scale(1); transform-origin: center; transition: transform 0.18s ease; }
 .complete-back:hover, .city-button:hover { transform: scale(1.03); }
+
+.complete-back > img, .taggy-dialogue > img, .city-button, .city-button > img { height: 100%; }

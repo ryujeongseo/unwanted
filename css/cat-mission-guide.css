@@ -1,0 +1,94 @@
+@font-face {
+  font-family: "ATP Tobeloved";
+  src: url("../assets/fonts/ATP Tobeloved.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.guide-canvas {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+  transform-origin: center;
+}
+
+.guide-layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+}
+
+.guide-layer > img { display: block; width: 100%; height: auto; }
+.guide-stage:not(img) { position: absolute; inset: 0; pointer-events: none; }
+
+/* Coordinates inside frame 15:15320. Cropped exports omit empty Figma nodes.
+   The background is a full-frame 16:9 export; other PNGs are exported at 2x. */
+.guide-bg { left: 0; top: 0; width: 1920px; }
+.guide-back { left: 87.35px; top: 89.4492px; width: 189.5px; }
+.guide-book-image { left: 94.22px; top: 163.67px; width: 955.5px; }
+.guide-target { left: 1092.96px; top: 163.72px; width: 723.5px; }
+.guide-challenge-image { left: 95.27px; top: 761.6px; width: 1155px; }
+.guide-start-button { left: 1312.0825px; top: 825.7362px; width: 488.775px; pointer-events: auto; }
+
+.guide-back, .guide-start-button {
+  cursor: pointer;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.18s ease;
+}
+.guide-back:hover, .guide-start-button:hover { transform: scale(1.03); }
+
+.guide-start-button {
+  height: 124.925px;
+  transition: transform 0.18s ease-out;
+}
+.guide-start-button > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.18s ease-out;
+}
+.guide-start-default { opacity: 1; }
+.guide-start-hover { opacity: 0; }
+.guide-start-button:hover .guide-start-default { opacity: 0; }
+.guide-start-button:hover .guide-start-hover { opacity: 1; }
+
+.guide-text {
+  position: absolute;
+  font-family: "ATP Tobeloved";
+  font-weight: 400;
+  white-space: nowrap;
+  color: #000;
+}
+.guide-track { position: absolute; border-radius: 999px; overflow: hidden; background: #ccc; }
+.guide-fill { display: block; height: 100%; background: #0fdcd7; border-radius: 999px; transform-origin: left; }
+.challenge-count { left: 302.15px; top: 825.62px; font-size: 80px; line-height: 100px; color: #fff5eb; }
+.challenge-active { left: 666.73px; top: 805.62px; font-size: 85px; line-height: 100px; color: #fff5eb; }
+.challenge-track { left: 305.17px; top: 931.25px; width: 280.84px; height: 14px; }
+.challenge-track .guide-fill { width: 164.8px; }
+
+/* Objective coordinates relative to the 1920 × 1080 Figma frame. */
+.objective-target { left: 708.33px; top: 368.74px; font-size: 56.63px; line-height: 68px; color: #666; }
+.objective-count { left: 836.95px; top: 368.74px; font-size: 56.63px; line-height: 68px; }
+.objective-remaining { left: 842.18px; top: 474.95px; font-size: 13.62px; line-height: 16px; }
+.objective-progress { position: absolute; left: 667.75px; top: 434.973px; width: 266.46px; height: 34.587px; }
+.objective-track { left: 0; top: 17.627px; width: 266.46px; height: 16.96px; }
+.objective-fill { position: absolute; left: 1.92px; top: 1.44px; width: calc(100% - 3.84px); height: 14.08px; border-radius: 999px; transform-origin: left; background: #0fdcd7; }
+.objective-percent-label { position: absolute; top: 0; width: 29.351px; height: 16.233px; }
+.objective-percent-label img { display: block; width: 100%; height: auto; }
+.objective-percent { left: 0; top: 0.457px; width: 100%; text-align: center; font-size: 9.2px; line-height: 11px; color: #fef4eb; }

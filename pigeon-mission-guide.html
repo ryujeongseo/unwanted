@@ -9,28 +9,31 @@
     <link rel="stylesheet" href="css/signal-online.css" />
   </head>
   <body>
-    <div class="signal-stage">
+    <main class="guide-canvas" aria-label="Pigeon Mission Guide">
       <div class="signal-online">
         <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
         <span class="signal-online__dot" aria-hidden="true"></span>
       </div>
-    </div>
-    <main class="guide-canvas" aria-label="Pigeon Mission Guide">
       <img class="guide-layer guide-bg" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-bg.png" alt="" />
       <a class="guide-layer guide-back" href="pigeon-crew-detail.html" aria-label="Pigeon Crew Detail로 돌아가기">
         <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-back-button.png" alt="BACK" />
       </a>
       <section class="guide-stage guide-book" aria-label="MISSION GUIDE — 도시 흔적 기록">
-        <img class="guide-layer guide-book-image" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-book-base.png" alt="MISSION BRIEF: 훼손, 방치, 오염의 흔적을 발견하고, 사진과 위치를 기록하라! PIGEON CREW: 사람들이 외면한 흔적을 기록하는 크루. MISSION RULE: 공공장소의 훼손 흔적을 발견해야 해. 흔적이 보이는 현장을 사진으로 기록해야 해. 기록한 장소의 위치를 태그해야 해." />
-        <div class="objective-target-label guide-text">TARGET</div>
-        <div class="objective-target guide-text">80</div>
-        <div class="objective-divider" aria-hidden="true"></div>
-        <div class="objective-current-label guide-text">CURRENT</div>
-        <div class="objective-count guide-text" data-count="42">42</div>
-        <div class="objective-track guide-track" role="progressbar" aria-label="Objective progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="52">
-          <span class="guide-fill"></span>
+        <img class="guide-layer guide-book-image" src="assets/images/pigeon-mission-guide/pigeon-objective-base.png" alt="MISSION BRIEF: 훼손, 방치, 오염의 흔적을 발견하고, 사진과 위치를 기록하라! PIGEON CREW: 사람들이 외면한 흔적을 기록하는 크루. MISSION RULE: 공공장소의 훼손 흔적을 발견해야 해. 흔적이 보이는 현장을 사진으로 기록해야 해. 기록한 장소의 위치를 태그해야 해." />
+        <div class="objective-values" data-target="80" data-current="42">
+          <div class="objective-target guide-text" aria-label="Target">80</div>
+          <div class="objective-count guide-text" aria-label="Current">42</div>
+          <div class="objective-progress">
+            <div class="objective-track guide-track" role="progressbar" aria-label="Objective progress" aria-valuemin="0" aria-valuemax="100">
+              <span class="objective-fill"></span>
+            </div>
+            <div class="objective-percent-label">
+              <img src="assets/images/pigeon-mission-guide/pigeon-objective-percent-label.png" alt="" />
+              <span class="objective-percent guide-text"></span>
+            </div>
+          </div>
+          <span class="objective-remaining guide-text" aria-label="Left to target"></span>
         </div>
-        <span class="objective-percent guide-text">52%</span>
       </section>
       <img class="guide-layer guide-target guide-stage" src="assets/images/pigeon-mission-guide/pigeon-mission-guide-target-area.png" alt="TARGET AREA — TRACE ZONE 02. STATUS: UNRECORDED. RISK LEVEL: LOW. RANGE: 300M." />
       <section class="guide-stage guide-challenge" aria-label="CITY RECOVERY CHALLENGE">

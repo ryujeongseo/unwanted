@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="css/signal-online.css" />
   </head>
   <body>
-    <div class="signal-stage">
+    <main class="crew-canvas" aria-label="Choose your crew">
       <div class="signal-online">
         <img class="signal-online__image" src="assets/images/signal-online.png" alt="SIGNAL : ONLINE" />
         <span class="signal-online__dot" aria-hidden="true"></span>
       </div>
-    </div>
-    <main class="crew-canvas" aria-label="Choose your crew">
       <img class="crew-layer crew-bg" src="assets/images/crew-select/crew-bg.png" alt="" />
       <a class="crew-layer crew-back" href="index.html" aria-label="Back to intro">
         <img src="assets/images/crew-select/back-button.png" alt="Back" />
@@ -37,8 +35,8 @@
       (() => {
         const crews = [
           ['.crew-pigeon', 'pigeon-dialogue-01.html'],
-          ['.crew-rat', 'rat.html'],
-          ['.crew-cat', 'cat.html'],
+          ['.crew-rat', 'rat-dialogue-01.html'],
+          ['.crew-cat', 'cat-dialogue-01.html'],
         ];
         crews.forEach(([selector, destination]) => {
           document.querySelector(selector).addEventListener('click', () => {

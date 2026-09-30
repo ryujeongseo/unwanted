@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rat Crew ID</title>
+    <link rel="stylesheet" href="css/rat-crew-id.css" />
+    <script src="js/rat-crew-id.js" defer></script>
+  </head>
+  <body>
+    <main class="id-canvas" aria-label="Create your Rat Crew ID">
+      <img class="id-layer id-bg" src="assets/images/pigeon-crew-id/pigeon-crew-id-bg.png" alt="" />
+      <a class="id-layer id-back" href="index.html" aria-label="Intro로 돌아가기"><img src="assets/images/pigeon-crew-id/pigeon-crew-id-back-to-intro.png" alt="BACK TO INTRO" /></a>
+      <img class="id-layer id-title" src="assets/images/rat-crew-id/rat-crew-id-title.png" alt="CREATE YOUR CREW ID" />
+      <div class="id-card-presentation">
+      <div class="id-camera-area">
+        <video class="id-video" autoplay playsinline muted aria-label="거울 방향 카메라 미리보기"></video>
+        <img class="id-captured" alt="촬영한 Crew ID 사진" hidden />
+      </div>
+      <img class="id-layer id-card" src="assets/images/rat-crew-id/rat-crew-id-card-frame.png" alt="RAT CREW — BEAT Crew ID" />
+      </div>
+      <img class="id-layer id-look" src="assets/images/pigeon-crew-id/pigeon-crew-id-look-camera.png" alt="LOOK AT THE CAMERA" />
+      <button class="id-layer id-capture" type="button" aria-label="사진 촬영" disabled><img src="assets/images/rat-crew-id/rat-crew-id-camera-button.png" alt="" /></button>
+      <button class="id-layer id-next" type="button" disabled><img src="assets/images/pigeon-crew-id/pigeon-crew-id-take-photo-button.png" alt="GET YOUR CREW ID" /></button>
+      <span class="id-status" role="status" aria-live="polite"></span>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "ATP Tobeloved";
+  src: url("../assets/fonts/ATP Tobeloved.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #181818; }
+.city-canvas { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden; transform: translate(-50%, -50%) scale(var(--canvas-scale, 1)); transform-origin: center; }
+.city-layer { position: absolute; display: block; height: auto; }
+.city-layer > img { display: block; width: 100%; height: auto; }
+/* Coordinates relative to Figma frame 38:1601; exported PNG ratios retained. */
+.city-bg { left: -26.9px; top: -15.42px; width: 1972.96px; }
+.city-back { left: 87.35px; top: 89.4492px; width: 188.843px; }
+.city-title { left: 755px; top: 137.5707px; width: 410.4114px; opacity: 0; transform-origin: center; }
+.city-photo { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
+.city-photo-area { position: absolute; left: 451.9775px; top: 255.0565px; width: 1021.5682px; height: 425.1156px; overflow: hidden; }
+.city-photo-area img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.city-photo-gray { filter: grayscale(1); }
+.city-photo-color { clip-path: inset(0 100% 0 0); }
+.city-photo-frame { left: 438px; top: 239.6858px; width: 1043.9551px; }
+.city-before, .city-after { left: 479.884px; top: 273.64px; width: 143.49px; }
+.city-after { opacity: 0; }
+.city-divider { left: 432.6075px; top: 260.46px; width: 38.74px; }
+.city-recovered-base { left: 503.76px; top: 714.45px; width: 261.96px; }
+.city-crew-base { left: 858.17px; top: 712.01px; width: 223.95px; }
+.city-impact-base { left: 1166.75px; top: 710.31px; width: 250.42px; }
+.city-stat-divider { position: absolute; top: 712.01px; height: 104px; border-left: 1.6px dashed rgb(255 245 235 / 45%); }
+.city-stat-divider-first { left: 815.96px; }
+.city-stat-divider-second { left: 1123.29px; }
+.city-number { position: absolute; font-family: "ATP Tobeloved"; font-size: 47px; line-height: 55px; font-weight: 400; color: #fff5eb; white-space: nowrap; }
+.city-recovered-number { left: 622.72px; top: 744px; }
+.city-crew-number { left: 977.12px; top: 743.82px; }
+.city-impact-number { left: 1285.17px; top: 742.48px; }
+.city-progress { position: absolute; left: 529.14px; top: 817.05px; width: 235.26px; height: 15px; border-radius: 999px; overflow: hidden; background: #444; }
+.city-progress > span { display: block; width: 67%; height: 100%; background: #0fdcd7; border-radius: inherit; transform: scaleX(0); transform-origin: left center; }
+.city-create { left: 719.6241px; top: 868.0788px; width: 480.7286px; padding: 0; border: 0; background: transparent; }
+.city-back, .city-create { cursor: pointer; transform: scale(1); transform-origin: center; transition: transform 0.18s ease-out; }
+.city-back:hover, .city-create:hover { transform: scale(1.03); }

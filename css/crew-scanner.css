@@ -1,0 +1,112 @@
+@font-face { font-family: 'ATP Tobeloved'; src: url('../assets/fonts/ATP Tobeloved.ttf') format('truetype'); }
+@font-face { font-family: 'Haeong Sans'; src: url('../assets/fonts/KMU80TTFHaeongSans.ttf') format('truetype'); }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #181818; }
+.scanner-canvas { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; overflow: hidden; transform: translate(-50%, -50%) scale(var(--canvas-scale, 1)); transform-origin: center; --crew-color: #ffe003; --scan-x: 1138px; --scan-y: 610px; --scan-radius: 137.5px; }
+.scanner-canvas [hidden] { display: none !important; }
+.scanner-layer { position: absolute; display: block; max-width: none; height: auto; user-select: none; -webkit-user-drag: none; }
+.scanner-photo, .scanner-loading, .scanner-game { position: absolute; inset: 0; }
+.scanner-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.scanner-photo-dark { filter: brightness(.28); }
+.scanner-loading-active .scanner-photo-dark { filter: brightness(.13); }
+.scanner-photo-light { visibility: hidden; mask-image: radial-gradient(circle var(--scan-radius) at var(--scan-x) var(--scan-y), #000 calc(100% - 1px), transparent 100%); -webkit-mask-image: radial-gradient(circle var(--scan-radius) at var(--scan-x) var(--scan-y), #000 calc(100% - 1px), transparent 100%); }
+.scanner-exploring .scanner-photo-light { visibility: visible; }
+.scanner-border { inset: 0; width: 1920px; height: 1080px; pointer-events: none; z-index: 1; opacity: .28; }
+.scanner-loading { z-index: 2; }
+.scanner-loading-title { left: 584px; top: 422px; width: 735.4px; }
+.scanner-loading-text { position: absolute; left: calc(641.38px + 632.83px / 2); top: 565px; transform: translateX(-50%); color: #fef3ea; font: 34px 'ATP Tobeloved', sans-serif; white-space: nowrap; }
+/* All three dots retain their full width; opacity changes never affect centering. */
+.scanner-ellipsis { display: inline-block; width: max-content; }
+.scanner-ellipsis span { opacity: 0; }
+.scanner-loading-running .scanner-ellipsis span { animation: scanner-dot 1.2s steps(1, end) infinite; }
+.scanner-loading-running .scanner-ellipsis span:nth-child(2) { animation-name: scanner-dot-two; }
+.scanner-loading-running .scanner-ellipsis span:nth-child(3) { animation-name: scanner-dot-three; }
+@keyframes scanner-dot { 0% {opacity:0} 25% {opacity:1} }
+@keyframes scanner-dot-two { 0% {opacity:0} 50% {opacity:1} }
+@keyframes scanner-dot-three { 0% {opacity:0} 75% {opacity:1} }
+.scanner-loading-bar { position: absolute; left: 641.38px; top: 632.84px; width: 632.83px; height: 28.08px; }
+.scanner-loading-bar > img { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.scanner-loading-track { position: absolute; inset: 3px; overflow: hidden; }
+.scanner-loading-fill { display: block; height: 100%; background: var(--crew-color); transform: scaleX(0); transform-origin: left; }
+.scanner-loading-running .scanner-loading-fill { animation: scanner-fill 1.8s linear forwards; }
+@keyframes scanner-fill { to { transform: scaleX(1); } }
+.scanner-game { z-index: 2; }
+.scanner-exploring .scanner-game { cursor: none; }
+.scanner-ui { position: absolute; z-index: 2; cursor: default; }
+.scanner-title { left: 626px; top: 100.35px; width: 668px; }
+.scanner-label { left: 1041.12px; top: 196.34px; width: 202.12px; }
+.scanner-panel { left: 1537.97px; top: 96.81px; width: 289.05px; height: 226.79px; }
+.scanner-panel > img, .scanner-bubble > img { display: block; width: 100%; height: 100%; }
+.scanner-count { position: absolute; left: 68.12px; top: 67px; translate: 0 -5px; font: 58px 'ATP Tobeloved', sans-serif; color: #ffe003; -webkit-text-stroke: 1.5px #000; }
+.scanner-character { left: 96.33px; top: 551.74px; width: 294.55px; }
+.scanner-bubble { left: 321.96px; top: 495.15px; width: 280.05px; height: 146.07px; }
+.scanner-bubble p { position: absolute; left: 53.62px; top: 32.64px; width: 179px; margin: 0; text-align: center; font: 18px/24px 'Haeong Sans', sans-serif; color: #000; }
+.scanner-guide { left: 391.74px; top: 862.03px; width: 1136.51px; }
+.scanner-cursor { left: var(--scan-x); top: var(--scan-y); width: 298.57px; height: 298.57px; transform: translate(-50%, -50%); pointer-events: none; visibility: hidden; z-index: 0; }
+.scanner-exploring .scanner-cursor { visibility: visible; }
+.scanner-debug { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.scanner-debug-hotspot { position: absolute; border: 2px dashed var(--hotspot-color, #ff6262); border-radius: 50%; background: color-mix(in srgb, var(--hotspot-color, #ff6262) 13%, transparent); box-sizing: border-box; transform: translate(-50%, -50%); }
+.scanner-debug-hotspot::before { content: ''; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%; background: var(--hotspot-color, #ff6262); transform: translate(-50%, -50%); }
+.scanner-debug-hotspot span { position: absolute; left: 50%; top: 100%; transform: translateX(-50%); background: #181818; padding: 4px; font: 12px/17px monospace; color: var(--hotspot-color, #fff); white-space: pre; }
+.scanner-wipe { position: fixed; inset: 0; z-index: 9999; pointer-events: auto; }
+.guide-start-button.scanner-pressed { transform: scale(.97); transition-duration: .1s; }
+/* Only the interiors of the original PNG slots are covered. Dotted borders stay visible. */
+.scanner-slot { position: absolute; top: 159.44px; left: var(--slot-left); width: 46px; height: 46px; overflow: hidden; border-radius: 50%; background: #000; }
+.scanner-slot:nth-of-type(1) { --slot-left: 45.9px; }
+.scanner-slot:nth-of-type(2) { --slot-left: 121.8px; }
+.scanner-slot:nth-of-type(3) { --slot-left: 197.65px; }
+.scanner-slot-question, .scanner-slot-image { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; pointer-events: none; }
+.scanner-slot-question { z-index: 1; }
+.scanner-slot-question img { position: absolute; left: calc(-1 * var(--slot-left)); top: -159.44px; width: 289.05px; height: 226.79px; max-width: none; }
+.scanner-slot-image { background-repeat: no-repeat; }
+.scanner-count { color: var(--crew-color); transform-origin: center; }
+
+.scanner-debug-summary { position: absolute; left: 20px; top: 20px; background: #181818dd; padding: 8px; font: 15px/22px monospace; }
+
+/* TAGGY dialogue wraps into the original fixed Figma text box. */
+.scanner-canvas[data-crew="pigeon"] .scanner-bubble p { white-space: pre-line; }
+
+.scanner-back { left: 87.35px; top: 89.4492px; width: 189.5px; transition: transform .18s ease; transform-origin: center; }
+.scanner-back img { display: block; width: 100%; height: auto; }
+.scanner-back:hover { transform: scale(1.03); }
+/* Figma 153:36: the entire discovery composition moves as one group. */
+.scanner-result { position: absolute; left: 1056px; top: 547px; width: 774.95px; height: 445.13px; z-index: 4; pointer-events: none; }
+.scanner-result * { pointer-events: none; }
+.scanner-result > img, .scanner-result-polaroid > img { position: absolute; display: block; height: auto; max-width: none; }
+.scanner-result-photo { position: absolute; left: 30.624px; top: 34.446px; width: 287.5px; height: 270.1px; background-repeat: no-repeat; clip-path: polygon(0 6.2%, 93.7% 0, 100% 94.2%, 5.8% 100%); }
+.scanner-result-frame { left: -1.79px; top: -1.79px; width: 354.105px; }
+.scanner-result-tape { left: 102.319px; top: -14.417px; width: 122.925px; z-index: 2; }
+.scanner-result-card { left: 29px; top: 215px; width: 505.137px; z-index: 3; }
+.scanner-result-number-label { position: absolute; left: 301px; top: 215px; width: 191.656px; height: 58.88px; }
+.scanner-result-number-label::before { content: ''; position: absolute; inset: 0; background: var(--crew-color); mask: var(--trace-label-image) center / 100% 100% no-repeat; -webkit-mask: var(--trace-label-image) center / 100% 100% no-repeat; }
+.scanner-result-number { position: absolute; left: 34.63px; top: 3.65px; color: #000; font: 32.26px/39px 'ATP Tobeloved', sans-serif; white-space: nowrap; transform: rotate(2.37deg); }
+.scanner-result-title { position: absolute; left: 99px; top: 299.25px; width: 375px; text-align: right; margin: 0; color: #000; font: 32.51px/37px 'Haeong Sans', sans-serif; }
+.scanner-result-description { position: absolute; left: 99px; top: 353.41px; width: 375px; text-align: right; margin: 0; color: #000; font: 25.42px/29px 'Haeong Sans', sans-serif; word-break: keep-all; }
+/* Figma 153:2 relative to the scanner center (1138.03,609.72). */
+.scanner-found-label { width: 170.15px; height: auto; z-index: 3; pointer-events: none; }
+
+.scanner-result-photo { z-index: 1; }
+.scanner-result-number-label, .scanner-result-title, .scanner-result-description { z-index: 4; }
+.scanner-found-label { height: 53.27px; }
+.scanner-found-label img { width: 100%; height: 100%; }
+.scanner-found-label span { position: absolute; left: 19.86px; top: 5.258px; font: 25.34px/normal "ATP Tobeloved", sans-serif; white-space: nowrap; color: #000; }
+
+/* Figma 159:31. Completion shares the existing scaled 1920 × 1080 canvas. */
+.scanner-complete { position: absolute; inset: 0; z-index: 5; }
+/* Existing photo brightness .28 × (1 - 9/14) = .10: Figma's 90% black overlay. */
+.scanner-complete-shade { position: absolute; inset: 0; background: rgb(0 0 0 / 64.285714%); }
+.scanner-complete-all, .scanner-complete-found { position: absolute; margin: 0; white-space: nowrap; font-family: 'ATP Tobeloved', sans-serif; font-weight: normal; line-height: normal; opacity: 0; }
+.scanner-complete-all { left: 706.87px; top: 271.78px; width: 482px; height: 119px; font-size: 100px; color: #fef3ea; }
+.scanner-complete-found { left: 758.9px; top: 361.09px; width: 381px; height: 211px; font-size: 177.08px; color: var(--crew-color); }
+.scanner-complete-copy { position: absolute; left: 707.12px; top: 593.71px; width: 485px; height: 78px; color: #fef3ea; font: 29.73px/34px 'Haeong Sans', sans-serif; text-align: center; }
+.scanner-complete-copy p { margin: 0; height: 34px; white-space: nowrap; }
+.scanner-complete-copy p + p { margin-top: 10px; }
+.scanner-complete-line { display: inline-block; position: relative; }
+.scanner-complete-ghost { visibility: hidden; }
+.scanner-complete-typed { position: absolute; left: 0; top: 0; white-space: pre; }
+.scanner-complete-button { position: absolute; left: 670.217px; top: 733.359px; width: 557.895px; height: 131.227px; color: #000; text-decoration: none; opacity: 0; transition: transform .2s ease-out; }
+.scanner-complete-button[aria-disabled="true"] { pointer-events: none; }
+.scanner-complete-button img { width: 100%; height: 100%; pointer-events: none; }
+.scanner-complete-button:not([aria-disabled="true"]):hover { transform: scale(1.04); }
+
+/* Figma 153:37/53: rotate the photo/frame/tape together, independently of result motion. */
+.scanner-result-polaroid { position: absolute; left: 410.9046px; top: 12.5611px; width: 350.5249px; height: 371.3297px; transform: rotate(7.92deg); transform-origin: center; }

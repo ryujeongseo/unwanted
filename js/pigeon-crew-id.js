@@ -59,7 +59,7 @@
   capture.addEventListener('click', async () => {
     if (captured) {
       captured = false;
-      next.disabled = true;
+      if (next) next.disabled = true;
       photo.hidden = true;
       photo.removeAttribute('src');
       video.hidden = false;
@@ -84,12 +84,12 @@
       photo.hidden = false;
       video.hidden = true;
       captured = true;
-      next.disabled = false;
+      if (next) next.disabled = false;
       capture.setAttribute('aria-label', '다시 촬영하기: 카메라 미리보기로 돌아가기');
       status.textContent = '촬영되었습니다.';
     } catch { status.textContent = '촬영하지 못했습니다. 다시 시도해 주세요.'; }
   });
-  next.addEventListener('click', async () => {
+  next?.addEventListener('click', async () => {
     if (!captured || next.disabled || !photo.src) return;
     // Open during the click gesture so async PNG encoding does not trigger popup blocking.
     const result = window.open('', '_blank');

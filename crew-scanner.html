@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNWANTED — CREW SCANNER</title>
+  <link rel="stylesheet" href="css/crew-scanner.css">
+  <script src="js/crew-scanner-config.js" defer></script>
+  <script src="js/crew-scanner.js" defer></script>
+  <link rel="stylesheet" href="css/common-cursor.css" />
+  <script src="js/common-cursor.js" defer></script>
+</head>
+<body>
+  <main class="scanner-canvas" aria-label="TAGGY Crew Scanner" data-crew="pigeon">
+    <div class="scanner-photo" aria-hidden="true">
+      <img class="scanner-photo-dark" data-asset="background" alt="">
+      <img class="scanner-photo-light" data-asset="background" alt="">
+    </div>
+    <img class="scanner-border scanner-layer" data-asset="border" alt="">
+    <section class="scanner-loading" aria-label="SCANNER ACTIVATED">
+      <img class="scanner-loading-title scanner-layer" data-asset="loadingTitle" alt="SCANNER ACTIVATED">
+      <div class="scanner-loading-text">SEARCHING FOR URBAN TRACES<span class="scanner-ellipsis" aria-hidden="true"><span>.</span><span>.</span><span>.</span></span></div>
+      <div class="scanner-loading-bar" role="progressbar" aria-label="Searching for urban traces" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="scanner-loading-track"><span class="scanner-loading-fill"></span></div>
+        <img data-asset="loadingBar" alt="">
+      </div>
+    </section>
+    <section class="scanner-game" aria-label="도시에서 숨겨진 흔적 3개를 탐색하세요" hidden>
+      <img class="scanner-cursor scanner-layer" data-asset="cursor" alt="" aria-hidden="true">
+      <div class="scanner-debug" aria-hidden="true"></div>
+      <div class="scanner-result" hidden aria-label="발견한 흔적 정보">
+        <div class="scanner-result-polaroid">
+          <div class="scanner-result-photo" aria-hidden="true"></div>
+          <img class="scanner-result-frame" data-asset="polaroidFrame" alt="">
+          <img class="scanner-result-tape" data-asset="polaroidTape" alt="">
+        </div>
+        <img class="scanner-result-card" data-asset="traceCard" alt="">
+        <div class="scanner-result-number-label"><span class="scanner-result-number"></span></div>
+        <h2 class="scanner-result-title"></h2>
+        <p class="scanner-result-description"></p>
+      </div>
+      <div class="scanner-found-label scanner-layer" hidden><img data-asset="traceFound" alt=""><span>TRACE FOUND!</span></div>
+      <a class="scanner-back scanner-layer scanner-ui" href="pigeon-mission-guide.html" aria-label="MISSION GUIDE로 돌아가기">
+        <img src="assets/images/pigeon-mission-guide/pigeon-mission-guide-back-button.png" alt="BACK">
+      </a>
+      <img class="scanner-title scanner-layer scanner-ui" data-asset="title" alt="CREW SCANNER">
+      <img class="scanner-label scanner-layer scanner-ui" data-asset="label" alt="PIGEON CREW — TAGGY">
+      <div class="scanner-panel scanner-ui" aria-label="TRACE FOUND 00 / 03 — 미발견 슬롯 3개">
+        <img data-asset="panel" alt="">
+        <span class="scanner-count">00</span>
+        <div class="scanner-slot" aria-label="빈 슬롯 1"><div class="scanner-slot-question" aria-hidden="true"><img data-asset="panel" alt=""></div></div>
+        <div class="scanner-slot" aria-label="빈 슬롯 2"><div class="scanner-slot-question" aria-hidden="true"><img data-asset="panel" alt=""></div></div>
+        <div class="scanner-slot" aria-label="빈 슬롯 3"><div class="scanner-slot-question" aria-hidden="true"><img data-asset="panel" alt=""></div></div>
+      </div>
+      <img class="scanner-character scanner-layer scanner-ui" data-asset="character" alt="TAGGY">
+      <div class="scanner-bubble scanner-ui">
+        <img data-asset="bubble" alt="">
+        <p>그냥 지나칠 거야?<br>잘 보면 흔적이 보일 텐데.</p>
+      </div>
+      <img class="scanner-guide scanner-layer scanner-ui" data-asset="guide" alt="HOW TO SCAN: 마우스를 움직여 도시를 스캔하세요. 숨겨진 흔적을 클릭하세요. 흔적을 모두 찾아 미션을 시작하세요.">
+    </section>
+    <section class="scanner-complete" hidden aria-label="ALL TRACES FOUND!">
+      <div class="scanner-complete-shade" aria-hidden="true"></div>
+      <h1 class="scanner-complete-all">ALL TRACES</h1>
+      <p class="scanner-complete-found">FOUND!</p>
+      <div class="scanner-complete-copy">
+        <p><span class="scanner-complete-line"><span class="scanner-complete-ghost" aria-hidden="true">도시의 숨겨진 흔적을 모두 발견했어요.</span><span class="scanner-complete-typed"></span></span></p>
+        <p><span class="scanner-complete-line"><span class="scanner-complete-ghost" aria-hidden="true">이제 발견한 흔적을 직접 기록할 차례예요!</span><span class="scanner-complete-typed"></span></span></p>
+      </div>
+      <a class="scanner-complete-button" aria-label="START YOUR MISSION" aria-disabled="true" tabindex="-1" href="pigeon-mission-action.html">
+        <img data-asset="completeButton" alt="">
+      </a>
+    </section>
+  </main>
+</body>
+</html>

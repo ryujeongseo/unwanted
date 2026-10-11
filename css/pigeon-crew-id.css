@@ -6,7 +6,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background:
 .id-bg { inset: 0; width: 1920px; height: 1080px; }
 .id-back { left: 87.35px; top: 89.4492px; width: 338.843px; height: 67.0708px; }
 .id-title { left: 669.7358px; top: 151.9865px; width: 580.5249px; height: 83.516px; opacity: 0; transform-origin: center; }
-.id-camera-area { position: absolute; left: 551.6249px; top: 436.0528px; width: 244.5622px; height: 244.5622px; overflow: hidden; }
+.id-camera-area { position: absolute; left: 551.6249px; top: 428.0528px; width: 244.5622px; height: 252.5622px; overflow: hidden; }
 .id-camera-area > video, .id-camera-area > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .id-video { transform: scaleX(-1); }
 .id-card { left: 512.627px; top: 273.22px; width: 874.7559px; height: 571.59px; z-index: 2; pointer-events: none; }

@@ -1,0 +1,15 @@
+/* Native PNG cursors: no DOM follower, motion delay, or pointer interception. */
+@media (any-hover: hover) and (any-pointer: fine) {
+  html[data-unwanted-cursor],
+  html[data-unwanted-cursor] * { cursor: var(--unwanted-cursor, auto) !important; }
+
+  html[data-unwanted-cursor] .scanner-exploring .scanner-game,
+  html[data-unwanted-cursor] .scanner-exploring .scanner-game * { cursor: none !important; }
+  html[data-unwanted-cursor] .scanner-exploring .scanner-game .scanner-ui,
+  html[data-unwanted-cursor] .scanner-exploring .scanner-game .scanner-ui * { cursor: var(--unwanted-cursor, auto) !important; }
+
+  html[data-unwanted-cursor] textarea,
+  html[data-unwanted-cursor] input:not([type]),
+  html[data-unwanted-cursor] input:is([type="text"],[type="email"],[type="password"],[type="search"],[type="tel"],[type="url"],[type="number"]),
+  html[data-unwanted-cursor] [contenteditable="true"] { cursor: text !important; }
+}

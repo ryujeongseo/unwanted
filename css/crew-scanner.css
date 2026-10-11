@@ -69,7 +69,7 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background:
 .scanner-back img { display: block; width: 100%; height: auto; }
 .scanner-back:hover { transform: scale(1.03); }
 /* Figma 153:36: the entire discovery composition moves as one group. */
-.scanner-result { position: absolute; left: 1056px; top: 547px; width: 774.95px; height: 445.13px; z-index: 4; pointer-events: none; }
+.scanner-result { position: absolute; left: 1056px; top: 507px; width: 774.95px; height: 445.13px; z-index: 4; pointer-events: none; }
 .scanner-result * { pointer-events: none; }
 .scanner-result > img, .scanner-result-polaroid > img { position: absolute; display: block; height: auto; max-width: none; }
 .scanner-result-photo { position: absolute; left: 30.624px; top: 34.446px; width: 287.5px; height: 270.1px; background-repeat: no-repeat; clip-path: polygon(0 6.2%, 93.7% 0, 100% 94.2%, 5.8% 100%); }

@@ -38,8 +38,8 @@ export function mountFeedback(canvas, crew) {
     result.dataset.cropY = String(discovery.position.y);
     result.setAttribute('aria-label', `TRACE ${copy.number} — ${copy.title}. ${copy.description}`);
     number.textContent = `TRACE ${copy.number}`;
-    title.textContent = '';
-    description.textContent = '';
+    title.textContent = copy.title;
+    description.textContent = copy.description;
     const width = crew.hotspotReferenceSize.width * 287.5 / discovery.cropDiameter;
     const height = width * background.naturalHeight / background.naturalWidth;
     // Keep edge discoveries inside the photograph rather than exposing an empty crop.
@@ -57,8 +57,6 @@ export function mountFeedback(canvas, crew) {
       { transform: `translateY(${distance}px)`, opacity: 0 },
       { transform: 'translateY(0)', opacity: 1 },
     ], { duration: reducedMotion.matches ? 0 : 500, easing: 'cubic-bezier(.2,1.25,.4,1)' });
-    title.textContent = copy.title;
-    description.textContent = copy.description;
     result.dataset.phase = 'holding';
     await delay(discovery.isComplete ? 3500 : 1000, signal);
     result.dataset.phase = 'exiting';
